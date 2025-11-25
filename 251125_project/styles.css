@@ -13,6 +13,12 @@ header {
     margin:0px;
 }
 
+.card-container {
+    flex-direction:row;
+    display:flex;
+    gap:10px;
+    padding:10px;
+}
 .card {
     border-left: 4px solid gray;
     background-color:lightgray;
@@ -35,11 +41,15 @@ header {
 
 }
 button {
-    background-color: darkgray;
+    border-radius:8px;
+    background-color: lightgray;
+    border: 0px;
+    padding:10px;
 }
 
 button:hover {
     color: darkred;
+    font-weight:800;
     cursor: pointer;
 }
 
