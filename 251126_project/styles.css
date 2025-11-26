@@ -1,5 +1,5 @@
 * {
-    font-family: cursive;
+    font-family: arial, sans-serif;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
@@ -8,7 +8,7 @@
 body {
     display:flex;
     flex-direction:column;
-    height:100vh;
+    height:150vh;
 }
 
 /* header */
@@ -32,8 +32,8 @@ nav {
     top:0;
     background-color:black;
     padding:10px;
-    border-bottom: 2px solid pink;
-    border-radius:2px;
+    border-bottom: 3px solid pink;
+    border-radius: 3px;
 
 
 }
@@ -68,8 +68,8 @@ nav ul li a {
     width:90%;
     margin:auto;
 
-    border-left: 3px solid black;
-    border-radius: 3px;
+    border-left: 4px solid black;
+    border-radius: 5px;
     font-style: italic;
 }
 
@@ -80,7 +80,8 @@ nav ul li a {
     margin:auto;
     border-left: 4px solid black;
     border-radius:5px;
-    padding:10px;
+    padding: 10px;
+    font-size:0.8rem;
 }
 
 .philosophy h3 {
@@ -91,19 +92,6 @@ nav ul li a {
     padding-left:10px;
     padding-top:3px;
     padding-bottom:3px;
-}
-
-.philosophy #bad-emphasize:hover {
-    color:red;
-    transition-delay:5ms;
-    font-weight:800;
-    font-size: 18px;
-}
-.philosophy #good-emphasize:hover {
-    color:blue;
-    transition-delay:5ms;
-    font-weight:800;
-    font-size: 18px;
 }
 
 /* prompt */
