@@ -1,66 +1,151 @@
+.paytone-one-regular {
+  font-family: "Paytone One", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
 * {
-    font-family: Ubuntu, sans-serif;
+    font-family: "Paytone One", sans-serif;
     padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+    background-color: rgb(158, 158, 158);
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+
+    margin:auto;
+    min-height: 30vh;
+    width: 60%;
+    max-width: 700px;
+    border-radius: 15px;
+    background-color:black;
+    color:white;
+    gap:10px;
+}
+
+.box-container1 {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items:center;
+
+    background-color:rgb(42, 71, 71);
+    border-left: 5px solid whitesmoke;
+    padding: 15px;
+    margin: 10px;
+    border-radius: 10px;
+    gap:20px;
+
+    min-width:200px;
+}
+
+.profile-picture {
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    width:120px;
+    height:120px;
+    border-bottom: 5px solid white;
+    border-radius: 50%;
+    margin:0;
+    flex-shrink: 0;
+    overflow:hidden;
+}
+
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    
+}
+
+.links {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:10px 0;
+    margin:0;
+    text-align:center;
+
+}
+
+.links a {
+    text-decoration:none;
+    color:white;
+    font-weight:800;
+}
+
+.links a:hover {
+    color:yellow;
+    transition-delay: 6ms;
+}
+
+.box-container2 {
+    display:flex;
+    flex-direction:column;
+    justify-content:space-evenly;
+    flex: 2;
+    min-width: 250px;
+    background-color:rgb(42, 71, 71);
+    border-left: 5px solid whitesmoke;
+    padding: 20px;
+    border-radius: 10px;
+    margin:10px;
+    gap:20px;
+}
+
+.about {
+    display:flex;
+    flex-direction:column;
+    justify-content:space-evenly;
+    align-items:left;
+    border-radius: 5px;
+    border-left: 3px solid yellowgreen;
+    padding:10px;
     margin:0;
 }
 
-header {
-    font-size:18px;
-    background-color:black;
-    color:white;
-    text-align:center;
-    padding:20px;
-    margin:0px;
+.about p {
+    font-size:12px;
 }
 
-.card-container {
-    flex-direction:row;
+.contact {
     display:flex;
-    gap:10px;
+    flex-direction:column;
+    gap:5px;
+    justify-content:space-evenly;
+    align-items:flex-start;
     padding:10px;
-}
-.card {
-    border-left: 4px solid gray;
-    background-color:lightgray;
-    padding:10px;
-    margin:10px;
+    border-left: 3px solid yellowgreen;
     border-radius:5px;
 }
 
-.card h2 {
-    font-size:16px;
+.contact p {
+    font-size:10px;
 }
 
-.card p {
-    font-size:14px;
-    padding:5px;
+.contact #mail_to_me, #reachprep_url {
+    text-decoration:none;
+    color:white;
+    
 }
 
-.btn-container {
-    text-align:center;
-
-}
-button {
-    border-radius:8px;
-    background-color: lightgray;
-    border: 0px;
-    padding:10px;
+.contact #mail_to_me:hover, #reachprep_url:hover {
+    color: yellow;
+    font-weight: 700;
 }
 
-button:hover {
-    color: darkred;
-    font-weight:800;
-    cursor: pointer;
-}
-
-#answer {
-    padding:10px;
-    margin-top:10px;
-    cursor:pointer;
-    text-align:center;
-}
-
-#answer:hover {
-    color: red;
-    font-weight: 900;
-}
