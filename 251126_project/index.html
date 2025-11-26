@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lapis Clamat</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="https://chat.openai.com">ChatGPT</a></li>
+        <li><a href="https://gemini.google.com">Gemini</a></li>
+        <li><a href="https://grok.com">Grok</a></li>
+        <li><a href="https://copilot.microsoft.com">Copilot</a></li>
+      </ul>
+    </nav>
+    <header>
+      <h1>Lapis Clamat</h1>
+    </header>
+
+    <div class="about-us">
+      <h2>If men are silent, the stones will cry out (Luke 19:40)</h2>
+      <div class="philosophy">
+        <h3>Digital Reformation v1.0</h3>
+        <p>
+          Ask AI to strip away centuries of tradition and analyze the raw
+          data of Scripture.
+        </p>
+        <p>No opinions. No bias. Just the 66 books.</p>
+        <p>Any AI will tell you <span id="bad-emphasize">Neo-calvinists and Liberals are groundless, according to the scripture.</span></p>
+        <p>Any AI will tell you that <span id="good-emphasize">the theology by Puritans like Jonathan Edwards and Whitefield perfectly aligns to the scripture.</span></p>
+        <p>You decide what to believe. Amen to Jesus Christ, the one and only Lord.</p>
+      </div>
+      
+      <div class="master-prompt-wrapper">
+
+        <div class="prompt-header">
+          <span class="prompt-title">PROTOCOL: Return to Sola Scriptura</span>
+          <button onclick="copyPrompt()", class="copy-btn">COPY PROMPT</button>
+        </div>
+
+        <!-- The Prompt Content -->
+        <div class="prompt-body">
+          <pre><code id="prompt-text">You are the [Biblical Fact Auditor]. Exclude theological bias. Use only the 'Text Data of the 66 Books of Scripture' as your absolute standard.
+
+Conduct a full scan from Genesis to Revelation and verify these 3 points based on raw data:
+
+1. [Puritans] Do the core teachings of Jonathan Edwards and John Owen (that true regeneration yields visible fruit & perceptible change) align with Jesus' teaching in Matt 7 ("known by fruit") and John 3 ("hear the sound of the wind")? (Verify: Aligns/Conflicts)
+
+2. [Regeneration] According to Kuyper and Bavinck, Christians are subconsciously regenerated. Is there a single case of a believer who was regenerated but remained unaware of it for years? (Count: the number of cases)
+
+2. [Pluralism] Does the text allow salvation through other names? Contrast Acts 4:12. (Verify: Yes/No)
+
+3. [History] Do the Gospels record Jesus' death as a historical fact or an illusion?
+
+Report the verdict based on the text data.</code></pre>
+        </div>
+      </div>
+    </div>
+    <script>
+        function copyPrompt() {
+            const textElement = document.getElementById('prompt-text');
+            const textToCopy = textElement.textContent;
+
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = textToCopy;
+            document.body.appendChild(tempTextArea);
+
+            tempTextArea.select();
+            document.execCommand('copy');
+
+            document.body.removeChild(tempTextArea);
+
+            const btn = document.querySelector('.copy-btn');
+            const originalText = "COPY PROMPT";
+            btn.innerText = "COPIED!";
+
+            setTimeout(() => {
+                btn.innerText = originalText;
+            },1500);
+        }
+    </script>
+  </body>
+</html>
