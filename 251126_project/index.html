@@ -101,11 +101,11 @@ Report the verdict based on the text data.</code></pre>
             const textToCopy = textElement.textContent;
 
             const tempTextArea = document.createElement('textarea');
-            tempTextArea.value = textToCopy;
-            document.body.appendChild(tempTextArea);
+            tempTextArea.value = textToCopy; /* get everything in the textarea*/
+            document.body.appendChild(tempTextArea); /* put it in the html body.*/
 
-            tempTextArea.select();
-            document.execCommand('copy');
+            tempTextArea.select(); /* select the element.*/
+            document.execCommand('copy'); /* copy the element*/
 
             document.body.removeChild(tempTextArea);
 
