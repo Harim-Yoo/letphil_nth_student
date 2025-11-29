@@ -1,0 +1,145 @@
+*{
+    font-family: "Poppins", sans-serif;
+    margin:0;
+    padding:0;
+}
+
+body {
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+}
+
+/* header */
+
+header {
+    background-color:black;
+    color:white;
+    padding:50px;
+    text-align:center;
+}
+
+
+
+/* main contents */
+
+.container {
+    display:flex;
+    flex-direction:column;
+}
+
+.container1, .container2, .container3 {
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    flex: 1 1 0;
+    padding:10px;
+}
+
+.container1, .container3 {
+    background-color:whitesmoke;
+}
+
+
+.about, .types, .how{
+    padding:10px;
+    border-bottom: 3px solid gray;
+    border-radius:4px;
+    text-align:left;
+    color:black;
+    width:90%;
+    margin:auto;
+}
+
+h2, h3 {
+    text-transform: uppercase;
+}
+.about:hover, .types:hover, .how:hover {
+    color:blue;
+    font-weight:900;
+}
+
+.about-contents-1, .how-contents {
+    border-left: 3px solid;
+    border-radius: 5px;
+    width:90%;
+    padding:10px;
+    margin:auto;
+    margin-top:25px;
+}
+
+.about-contents-2 {
+    display:flex;
+    flex-direction:row;
+    justify-content:space-evenly;
+    align-items:stretch;
+    flex-wrap:wrap;
+    width: 80%;
+    margin:auto;
+}
+
+.about-card1, .about-card2 {
+    border:1px solid;
+    border-radius:10px;
+    flex: 1 1 0;
+    padding:30px;
+    margin:10px;
+    background-color:black;
+}
+.about-card1 p,
+.about-card2 p {
+    text-align: left;
+    padding:5px;
+    text-transform: uppercase;
+    color:white;
+
+}
+
+.about-card1 h3, .about-card2 h3 {
+    text-align:center;
+    border-left:3px solid;
+    border-radius:4px;
+    background-color:yellow;
+    margin-bottom:10px;
+}
+
+
+.type-contents {
+    display:flex;
+    flex-direction:row;
+    align-items:stretch;
+    flex-wrap:wrap;
+}
+
+.type-contents-1, .type-contents-2 {
+    display:flex;
+    flex-direction:column;
+    justify-content: flex-start;
+    align-items:center;
+    flex: 1 1 0;
+    padding:40px;
+}
+
+.type-name {
+    background-color:black;
+    color:whitesmoke;
+    padding:10px;
+    border-radius:10px;
+}
+
+.type-name:hover {
+    color:yellow;
+    font-weight:900;
+}
+
+
+/* footer */
+
+footer {
+    display:flex;
+    flex-direction:column;
+    flex:0 1 0;
+    justify-content:center;
+    padding:5px;
+    text-align:center;
+}
