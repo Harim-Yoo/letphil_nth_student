@@ -68,3 +68,23 @@ body {
 button:hover {
     font-weight:900;
 }
+
+/* video */
+
+.videoParent {
+    position:relative;
+    width:100%;
+    padding-bottom: 56.25%;
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    flex-wrap:wrap;
+    
+}
+
+.videoChild {
+    position:absolute;
+    margin:25px;
+    width:80%;
+    height:80%;
+}
