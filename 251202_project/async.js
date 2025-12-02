@@ -20,7 +20,6 @@ async function getUserInfo(id) {
         console.error(error);
         console.log("못찾았어요..ㅠㅠ")
     }
-    
 };
 
 getUserInfo(3);
