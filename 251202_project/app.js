@@ -99,7 +99,7 @@ function getCurrentProblem(userId) {
     const userPackageId = is_User.package_id; // Alice's package id = 101
     const userCurrentProblem = is_User.current_index; // Alice's current index = 1
 
-    const packageItem = packageItems.find( p => p.package_id === userPackageId);
+    const packageItem = packageItems.find( p => p.package_id === userPackageId && p.order_number === userCurrentProblem);
     const foundProblem = problems.find(
         (problem) => problem.problem_id === packageItem.problem_id
     );
