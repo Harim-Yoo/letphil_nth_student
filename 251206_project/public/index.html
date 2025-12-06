@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      id="MathJax-script"
+      async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <div class="container" id="probContainer">
+      <div class="probId" id="probId">Problem</div>
+      <div class="probStatement" id="probStatement">Statement</div>
+      <div class="buttonsInContainer">
+        <input
+          class="typeAnswer"
+          id="typeAnswer"
+          placeholder="Type your answer here"
+        />
+        <button class="checkBtn" id="checkBtn">Check</button>
+        <button class="nextBtn" id="nextBtn">Next</button>
+      </div>
+      <p id="feedbackMsg"></p>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
