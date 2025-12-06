@@ -1,22 +1,3 @@
-<<<<<<< HEAD
-const API_URL = "https://pokeapi.co/api/v2/pokemon/pikachu";
-
-async function getData(api_url) {
-    try {
-        const response = await fetch(api_url);
-        if (!response.ok) {
-            throw new error(`${response.status}`);
-        }
-
-        const data = await response.json();
-        console.log(data);
-    } catch(error) {
-        console.error(error);
-    }
- };
-
- getData(API_URL);
-=======
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -60,4 +41,3 @@ app.listen(port, () => {
 
 
 
->>>>>>> 13bdc2d4f1811738ed3b055479c5ccb03ab4305b
