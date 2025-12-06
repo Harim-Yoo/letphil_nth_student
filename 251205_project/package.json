@@ -2,12 +2,24 @@
   "name": "251205_project",
   "version": "1.0.0",
   "type": "module",
+<<<<<<< HEAD
   "description": "",
+=======
+>>>>>>> 13bdc2d4f1811738ed3b055479c5ccb03ab4305b
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
+<<<<<<< HEAD
   "license": "ISC"
+=======
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.2.1"
+  }
+>>>>>>> 13bdc2d4f1811738ed3b055479c5ccb03ab4305b
 }
