@@ -37,3 +37,27 @@
 
 // STEP 10: Use console.log again to print an UPDATED summary
 //          that shows the new values for eveningPlan and favoriteSnack.
+
+const dayName = "Monday";
+const stepsWalked = 5000;
+const waterCups = 5;
+const didWorkout = true;
+let eveningPlan = null;
+let favoriteSnack = undefined;
+
+console.log("--DAILY STATS--");
+console.log(`Day: ${dayName}`);
+console.log(`Steps walked: ${stepsWalked}`);
+console.log(`Worked out today? ${didWorkout}`);
+console.log(`Evening plan: ${eveningPlan}`);
+console.log(`Favorite snack: ${favoriteSnack}`);
+
+eveningPlan = "Movie night";
+favoriteSnack = "Popcorn";
+
+console.log("--DAILY STATS--");
+console.log(`Day: ${dayName}`);
+console.log(`Steps walked: ${stepsWalked}`);
+console.log(`Worked out today? ${didWorkout}`);
+console.log(`Evening plan: ${eveningPlan}`);
+console.log(`Favorite snack: ${favoriteSnack}`);

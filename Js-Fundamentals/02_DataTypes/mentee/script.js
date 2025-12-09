@@ -22,6 +22,18 @@
 //         Example idea (you will write something similar):
 //         console.log("userName:", userName, "type:", typeof userName);
 
+let userName = "Mide";
+let userAge = 25;
+let isStudent = true;
+let favoriteColor;
+let chosenPet = null;
+
+console.log("userName:", userName, "type:", typeof userName);
+console.log("userAge:", userAge, "type:", typeof userAge);
+console.log("isStudent:", isStudent, "type:", typeof isStudent);
+console.log("favoriteColor:", favoriteColor, "type:", typeof favoriteColor);
+console.log("chosenPet:", chosenPet, "type:", typeof chosenPet);
+
 // ==============================================
 // TASK 2 – STRING VS NUMBER
 // ==============================================
@@ -41,6 +53,17 @@
 
 // STEP 12: For each result, also log typeof to see the type of the final value.
 
+let textFive = "5";
+let numberFive = 5;
+let addition = textFive + numberFive;
+console.log(addition);
+
+let subtract = "5" - 2;
+console.log(subtract);
+
+console.log(typeof addition);
+console.log(typeof subtract);
+
 // ==============================================
 // TASK 3 – BOOLEANS IN CONTEXT
 // ==============================================
@@ -59,6 +82,15 @@
 // STEP 16: Create one more boolean called isTired
 //          and log a message with it as well.
 
+let hasCoffee = false;
+let isOnline = true;
+
+console.log(`Has coffe today? ${hasCoffee}`);
+console.log(`Is online right now? ${isOnline}`);
+
+let isTired = false;
+console.log(`Am I tired? ${isTired}`);
+
 // ==============================================
 // TASK 4 – typeof QUIRKS
 // ==============================================
@@ -74,3 +106,6 @@
 // STEP 21: Add console.log messages that clearly label each result, for example:
 //          console.log("Type of null is:", typeof null);
 //          so that it is easy to see the difference in the console.
+
+let emptyString = "";
+console.log(emptyString);
