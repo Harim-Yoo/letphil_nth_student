@@ -1,4 +1,4 @@
-const problems = [
+const mathProblems = [
     {
         id: 1,
         title: "Rate Problem",
@@ -35,4 +35,4 @@ const problems = [
 
 // This exports the array so other files can use it
 
-export default problems;
+export default mathProblems;

@@ -70,7 +70,7 @@ checkBtn.addEventListener('click', async () => {
             setTimeout(() => {
               typeAnswer.value = "";
               feedbackMsg.textContent = "";
-            }, 3000);
+            }, 1000);
         }
     } catch(error) {
         console.error("Error checking the answer", error);

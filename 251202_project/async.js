@@ -26,23 +26,28 @@
 
 const users = [
     {
-        user_id:1,
-        name:"Alice",
-        email:"alice@math.com"
+        user_id: 1,
+        name: "Alice",
+        email: "alice@math.com"
     },
     {
-        user_id:2,
-        name:"Bob",
-        email:"bob@math.com"
+        user_id: 2,
+        name: "Bob",
+        email: "bob@math.com"
     }
 ]
 
-function findUser(targetId) {
-    const foundUser = users.find(u=>u.user_id === targetId);
-    if (!foundUser) {
-        return "nothing has been found";
-    }
-    return foundUser;
-}
+// async function getUser(targetID) {
+//     try{
+//         const foundUsers = await users.map(u => u.user_id === targetID);
+//         if (!foundUsers) {
+//             console.log("Error fetching the user. There is no such user")
+//         }
+//         const foundName = await foundUsers.name;
+//         return foundName;
+//     } catch(error) {
+//         console.error(error.message);
+//     }
 
-console.log(findUser(1));   
+// }
+

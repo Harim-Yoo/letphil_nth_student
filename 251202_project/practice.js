@@ -1,5 +1,3 @@
-// --- 데이터 설정 (Data Setup) ---
-
 const customers = [
     { id: 10, name: "Charlie", email: "charlie@email.com" },
     { id: 20, name: "Dana", email: "dana@email.com" }
@@ -14,6 +12,29 @@ const subscriptions = [
     { sub_id: 100, customer_id: 10, plan_id: 1, status: "Active" }, // Standard
     { sub_id: 200, customer_id: 20, plan_id: 2, status: "Active" }  // Premium
 ];
+
+function isPremiumUser(customerId) {
+    /* Check whether customerId is in the subscription */
+    const subscribers = subscriptions.find( x => x.customer_id === customerId);
+    if (!subscribers) {
+        console.log("You have no such user");
+        return false;
+    }
+    
+    /* Fetch IDs from the subscribers.*/
+    const customerID = subscribers.customer_id;
+    const planID = subscribers.plan_id;
+
+    /* Check the planID in the plans, if any */
+    const planIDinPlans = plans.find(p => p.plan_id === planID);
+    if (planIDinPlans.type.toLowerCase()==="premium") {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+console.log(isPremiumUser(20));
 
 
 // --- 함수 뼈대 (Function Skeleton) ---
