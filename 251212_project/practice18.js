@@ -41,7 +41,7 @@ async function createReport(userID) {
         data.count = popularPosts.length;
         return data;     
     } catch(e) {
-        console.error("리포트 생성 에러", e.message);
+        console.error("Report error: ", e.message);
     }
 }
 
