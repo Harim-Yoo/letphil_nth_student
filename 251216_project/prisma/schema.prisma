@@ -1,0 +1,18 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model MathQuestion {
+  id              String @id@default(uuid())
+  content         String
+  difficulty      Int
+  domain          String
+  options         String
+  correctAnswer   String
+  createdAt       DateTime @default(now())
+}

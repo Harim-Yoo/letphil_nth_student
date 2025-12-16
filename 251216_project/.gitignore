@@ -1,0 +1,15 @@
+node_modules/
+
+generated/
+*.db
+*.db-journal
+
+.env
+
+.next/
+dist/
+build/
+
+.DS_Store
+Thumbs.db
+
