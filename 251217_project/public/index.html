@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Problem Generator</title>
+    <style>
+        .problemCard {
+            font-family: arial, sans-serif;
+            width: 60%;
+            height: 50%;
+            margin: auto;
+            border: 1px solid;
+            display: flex;
+            flex-direction:column;
+            justify-content: space-evenly;
+        }
+        p {
+            text-align: center;
+            border:1px solid;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="problemCard">
+        <button id="clickHere">Click Here</button>
+        <button id="clearAll">Clear All</button>
+        <p id="dataShow"></p>
+    </div>
+</body>
+<script>
+    let currentIndex = 0;
+    let questions = [];
+    const clickHere = document.getElementById('clickHere');
+    const dataShow = document.getElementById('dataShow');
+    const clearAll = document.getElementById('clearAll');
+
+    clickHere.addEventListener('click', async () => {
+        const dataFetched = await fetch('/test').then(res => res.json());
+        const person = dataFetched[currentIndex];
+        dataShow.innerHTML = `${person.name} is of age ${person.age}`;
+        currentIndex++;
+
+        if (currentIndex >= dataFetched.length) {
+            currentIndex = 0;
+        }
+    });
+
+    clearAll.addEventListener('click', () => {
+        dataShow.innerHTML = "";
+    });
+</script>
+
+</html>
