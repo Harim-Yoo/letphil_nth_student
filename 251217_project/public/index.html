@@ -2,99 +2,39 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Digital SAT Math @ ReachPrep</title>
     <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
     <div class="cardContainer">
-        <div class="problemCard">
+        <div class="screenLogin" id="screenLogin">
+            <h1>Digital SAT Math @ ReachPrep</h1>
+            <div class="inputContainer">
+                <input placeholder="Type your name" id="inputName" autocomplete="off" />
+                <button id="startBtn">Start Quiz</button>
+            </div>
+        </div>
+        <div class="problemCard" id="screenQuiz">
             <div class="buttonContainer">
                 <p id="textHere">Digital SAT Math @ ReachPrep</p>
-                <button id="clickHere">Next</button>
-                <button id="clearAll">Clear All</button>
+                <button id="submitBtn">Submit</button>
+                <button id="nextBtn" style="display:none">Next</button>
             </div>
-            <p id="idShow" style="display:none"></p>
+            <p id="idShow"></p>
             <p id="dataShow"></p>
             <div class="optionsContainer" id="optionsContainer"></div>
         </div>
+        <div class="resultContainer" id="screenResult">
+            <h1>Quiz Result</h1>
+            <p id="passFailMsg"></p>
+            <p id="scoreDetail"></p>
+            <ul id="wrongList"></ul>
+            <button id="restartBtn">Restart</button>
+        </div>
     </div>
 </body>
-<script>
-    let currentIndex = 0;
-    let questions = [];
-    const clickHere = document.getElementById('clickHere');
-    const dataShow = document.getElementById('dataShow');
-    const idShow = document.getElementById('idShow');
-    const clearAll = document.getElementById('clearAll');
-    const optionsContainer = document.getElementById('optionsContainer');
-
-    async function init() {
-        try {
-            questions = await fetch('/test').then(res => res.json());
-            console.log("Data fetched");
-        } catch (err) {
-            console.error(err.message);
-        }
-    }
-    init();
-
-    clickHere.addEventListener('click', async () => {
-
-        const problem = questions[currentIndex];
-        idShow.style.display = "block";
-        idShow.innerHTML = `Problem ${problem.id}.`;
-        dataShow.innerHTML = problem.text;
-        optionsContainer.innerHTML = problem['options'].map((item) => `<button> ${item} </button>`).join(" ");
-        currentIndex++;
-
-        if (currentIndex >= questions.length) {
-            currentIndex = 0;
-        }
-    });
-
-    clearAll.addEventListener('click', () => {
-        idShow.style.display = "none";
-        idShow.innerHTML = "";
-        dataShow.innerHTML = "";
-        optionsContainer.innerHTML = "";
-    });
-
-
-    optionsContainer.addEventListener('click', async (e) => {
-        if (e.target.tagName !== "BUTTON") return;
-        let problemIndex = currentIndex === 0 ? questions.length-1 : currentIndex-1;
-        const problem = questions[problemIndex];
-        const selectedAnswer = e.target.innerText.trim();
-        let data = { id: problem.id, guess: selectedAnswer };
-        try {
-            const response = await fetch('/check', {
-                method: "POST",
-                headers: {"Content-Type":"application/json"},
-                body: JSON.stringify(data)
-            });
-            if (!response.ok) throw new Error(response.statusText);
-            const resultData = await response.json();
-            if (resultData.correct) {
-                e.target.style.backgroundColor = "Green";
-                setTimeout(() => {
-                    e.target.style.backgroundColor = "";
-                },1000);
-            } else {
-                e.target.style.backgroundColor = "Red";
-                setTimeout(() => {
-                    e.target.style.backgroundColor = "";
-                },1000);
-            }
-        } catch(error) {
-            console.error(error.message);
-        }
-    });
-
-
-
-</script>
-
+<script src="script.js"></script>
 </html>

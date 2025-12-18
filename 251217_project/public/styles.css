@@ -4,6 +4,37 @@ body {
     font-family: 'Trebuchet MS', sans-serif;
 }
 
+.hidden {
+    display:none !important;
+}
+
+.selected {
+    background-color: #e0f7fa; /* 연한 하늘색 */
+    border: 2px solid #00acc1; /* 진한 테두리 */
+}
+
+.screenLogin {
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    gap:10px;
+    align-items:center;
+}
+
+.inputContainer {
+    display:flex;
+    flex-direction:row;
+    gap:10px;
+}
+
+.inputContainer #inputName {
+    flex: 3 0 0 ;
+}
+
+.inputContainer #startBtn {
+    flex: 2 0 0;
+}
+
 .cardContainer {
     display:flex;
     flex-direction:column;
@@ -22,6 +53,33 @@ body {
     border-radius:5px;
 }
 
+.resultContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items:left;
+    width: 500px;
+    height: 300px;
+    margin: auto;
+}
+
+.resultContainer p {
+    text-align:center;
+}
+
+#passFailMsg {
+    text-align:center;
+}
+
+#scoreDetail {
+    text-align:center;
+}
+
+#wrongList {
+    text-align:left;
+    border-left:2px solid;
+    border-radius:2px;
+}
 .buttonContainer {
     display:flex;
     flex-direction:row;
@@ -38,12 +96,12 @@ body {
     text-align:center;
 }
 
-#clickHere {
+#nextBtn {
     flex: 1 0 0;
     border: none;
     border-radius:8px;
 }
-#clearAll {
+#submitBtn {
     flex: 1 0 0;
     border: none;
     border-radius:8px;
