@@ -49,8 +49,8 @@ body {
     width: 500px;
     height: 300px;
     margin: auto;
-    border: 5px solid;
-    border-radius:5px;
+    border-left: 3px solid;
+    border-radius: 3px;
 }
 
 .resultContainer {

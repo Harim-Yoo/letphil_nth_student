@@ -67,9 +67,9 @@ startBtn.addEventListener('click', () => {
 
 function loadQuestion() {
     selectedGuess = null;
-    submitBtn.style.display = "block"; // 제출 버튼 보이기
+    submitBtn.style.display = "block";
     nextBtn.style.display = "none";
-
+  
     const problem = questions[currentIndex];
     idShow.innerHTML = `Problem ${problem.id}.`;
     dataShow.innerHTML = problem.text;
@@ -174,3 +174,6 @@ restartBtn.addEventListener('click', () => {
     screenShow("login");
     inputName.value = "";
 });
+
+
+
