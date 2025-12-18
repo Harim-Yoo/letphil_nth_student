@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input placeholder="Write Your Vocab" id="vocaWord" autocomplete="off" />
+    <input placeholder="Write Its Meaning" id="vocaMeaning" autocomplete="off" />
+    <button id="submitBtn">Submit</button>
+    <ul id="wordList"></ul>
+    <script>
+        const vocaWord = document.getElementById("vocaWord");
+        const vocaMeaning = document.getElementById("vocaMeaning");
+        const wordList = document.getElementById("wordList");
+        submitBtn.addEventListener("click", () => {
+            let variable = {};
+            let word = vocaWord.value;
+            let meaning = vocaMeaning.value;
+            if (word.trim() === "" || meaning.trim() === "") {
+                alert("Put the word")
+                return;
+            };
+            variable.name = word;
+            variable.meaning = meaning;
+
+            const li = document.createElement('li');
+            li.textContent += `Word: ${variable.name} : Meaning: ${variable.meaning}`;
+
+            const delBtn = document.createElement('button');
+            delBtn.textContent = "삭제";
+
+            delBtn.addEventListener('click',() => {
+                li.remove();
+            })
+            li.appendChild(delBtn);
+            wordList.appendChild(li);
+
+            vocaWord.value = "";
+            vocaMeaning.value = "";
+            
+        });
+    </script>
+</body>
+
+</html>

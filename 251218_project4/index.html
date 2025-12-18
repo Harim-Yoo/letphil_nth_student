@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .seat { background-color: #eee; cursor: pointer; border: 1px solid #ccc; padding: 10px; }
+    .seat.selected { background-color: red; color: white; }
+</style>
+</head>
+
+<body>
+    <div id="room"></div>
+    <div id="status">
+        <h3>예약 현황: <span id="count">0</span>석</h3>
+        <ul id="bookedList"></ul>
+    </div>
+    <button id="resetBtn">전체 초기화</button>
+</body>
+<script>
+    const room = document.getElementById('room');
+    const status = document.getElementById('status');
+    const count = document.getElementById('count');
+    const bookedList = document.getElementById('bookedList');
+    const resetBtn = document.getElementById('resetBtn');
+    let totalBooked = 0;
+
+    function createSeat(seatNumber) {
+        const btn = document.createElement('button');
+        const li = document.createElement('li')
+        btn.textContent = seatNumber;
+        btn.classList.add("seat");
+        btn.addEventListener("click", () => {
+            if (btn.classList.contains("selected")) {
+                btn.classList.remove("selected");
+                totalBooked--;
+                count.textContent = totalBooked;
+                li.remove();
+                return;
+            } else {
+                btn.classList.add("selected");
+
+                li.textContent = seatNumber;
+                bookedList.appendChild(li);
+                totalBooked++;
+                count.textContent = totalBooked;
+            }
+        })
+        return btn;
+    }
+
+    for (let i = 1; i <= 10; i++) {
+        const seat = createSeat(i);
+        room.appendChild(seat);
+    }
+
+    resetBtn.addEventListener("click", () => {
+        const allBtns = document.querySelectorAll('.seat');
+        for (const btn of allBtns) {
+            if (btn.classList.contains("selected")) {
+                btn.classList.remove("selected");
+            }
+        };
+        bookedList.innerHTML = "";
+        totalBooked = 0;
+        count.textContent = totalBooked; 
+    });
+</script>
+
+</html>
