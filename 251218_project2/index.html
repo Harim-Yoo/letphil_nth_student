@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer Practice</title>
+</head>
+
+<body>
+    <div class="timerContainer">
+        <button id="startBtn">Start</button>
+        <button id="pauseBtn">Pause</button>
+        <button id="clearBtn">Clear</button>
+        <p class="timer">00:00:00</p>
+    </div>
+    <script>
+        const startBtn = document.getElementById("startBtn");
+        const pauseBtn = document.getElementById("pauseBtn");
+        const clearBtn = document.getElementById("clearBtn");
+        let timer = document.querySelector('.timer');
+
+        let seconds = 0;
+        let minutes = 0;
+        let hours = 0;
+        let status = 0;
+
+        startBtn.addEventListener('click', () => {
+            status = setInterval(() => {
+                seconds++;
+                if (seconds === 60) {
+                    seconds = 0;
+                    minutes++;
+                    if (minutes == 60) {
+                        minutes = 0;
+                        hours++;
+                    }
+                }
+                let h = hours < 10 ? "0" + hours : hours;
+                let m = minutes < 10 ? "0" + minutes : minutes;
+                let s = seconds < 10 ? "0" + seconds : seconds;
+                timer.innerHTML = `${h}:${m}:${s}`;
+            }, 1000);
+            startBtn.disabled = true;
+        });
+
+        pauseBtn.addEventListener('click', () => {
+            clearInterval(status);
+            startBtn.innerHTML = "Resume";
+            startBtn.disabled = false;
+        });
+
+        clearBtn.addEventListener('click', () => {
+            clearInterval(status);
+            startBtn.innerHTML = "Start";
+            startBtn.disabled = false;
+            hours = 0;
+            minutes = 0;
+            seconds = 0;
+            timer.innerHTML = `00:00:00`;
+        })
+    </script>
+</body>
+
+</html>
