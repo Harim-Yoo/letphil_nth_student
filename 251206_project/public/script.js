@@ -39,6 +39,7 @@ typeAnswer.addEventListener('keydown', (event) => {
     }
 });
 
+
 checkBtn.addEventListener('click', async () => {
     try {
         const answerText = typeAnswer.value.trim();
@@ -56,6 +57,9 @@ checkBtn.addEventListener('click', async () => {
         }
 
         const resultData = await response.json();
+
+        const A = await response.json();
+        const B = await A.toString();
 
         if (resultData.correct === true) {
             feedbackMsg.textContent = "You are correct, Great job!"
