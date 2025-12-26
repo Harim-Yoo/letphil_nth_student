@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Make A Snippet</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="text-container">
+        <p id="text-area">Hello this is the text area I want to copy.</p>
+      </div>
+      <div class="btn-container">
+        <button id="btn-disposable">Copy Text</button>
+      </div>
+      <div class="disclaimer">
+        <p>The below is where you see the copied part.</p>
+      </div>
+      <div class="paste-container" id="paste-container"></div>
+    </div>
+    <script>
+      const textArea = document.getElementById("text-area");
+      const btnDispose = document.getElementById("btn-disposable");
+
+      
+      btnDispose.addEventListener("click", function () {
+        const textToCopy = textArea.textContent;
+        const placeToShow = document.createElement("p");
+        placeToShow.textContent = textToCopy;
+        placeToShow.id = "someText";
+        document.getElementById("paste-container").appendChild(placeToShow);
+
+        alert("Copied Successfully");
+        btnDispose.disabled = true;
+        btnDispose.textContent = "Copied";
+        btnDispose.style.backgroundColor = "gray";
+        
+      });
+    </script>
+  </body>
+</html>

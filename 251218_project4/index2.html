@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input placeholder="Type Your Words" id="toReverse" audocomplete="off" />
+    <button id="showBtn">Reverse Magic</button>
+    <p id="resultShow"></p>
+    <script>
+        const toReverse = document.getElementById('toReverse');
+        const showBtn = document.getElementById("showBtn");
+        const resultShow = document.getElementById("resultShow");
+
+        function reverseString(string) {
+            const stringSplit = string.split("");
+            const reverseStringSplit = stringSplit.reverse();
+            const joinReverseStringSplit = reverseStringSplit.join("");
+            return joinReverseStringSplit;
+        }
+
+        showBtn.addEventListener('click', () => {
+            const input = toReverse.value;
+            const string = reverseString(input)
+            resultShow.innerHTML = string;
+        });
+    </script>
+</body>
+
+</html>

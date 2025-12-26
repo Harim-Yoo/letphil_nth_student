@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Digital SAT Math @ ReachPrep</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <div class="cardContainer">
+        <div class="screenLogin" id="screenLogin">
+            <h1>Digital SAT Math @ ReachPrep</h1>
+            <div class="inputContainer">
+                <input placeholder="Type your name" id="inputName" autocomplete="off" />
+                <button id="startBtn">Start Quiz</button>
+            </div>
+        </div>
+        <div class="problemCard" id="screenQuiz">
+            <div class="buttonContainer">
+                <p id="textHere">Digital SAT Math @ ReachPrep</p>
+                <button id="submitBtn">Submit</button>
+                <button id="nextBtn" style="display:none">Next</button>
+            </div>
+            <p id="idShow"></p>
+            <p id="dataShow"></p>
+            <div class="optionsContainer" id="optionsContainer"></div>
+        </div>
+        <div class="resultContainer" id="screenResult">
+            <h1>Quiz Result</h1>
+            <p id="passFailMsg"></p>
+            <p id="scoreDetail"></p>
+            <ul id="wrongList"></ul>
+            <button id="restartBtn">Restart</button>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>

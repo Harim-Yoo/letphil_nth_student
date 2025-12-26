@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .progress-container {
+            width: 100%;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            height: 20px;
+            margin: 10px 0;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background-color: #4CAF50;
+            border-radius: 10px;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="helloWorld">Click</button>
+    <p id="showMessage"></p>
+    <script>
+        const helloWorld = document.getElementById("helloWorld");
+        const showMessage = document.getElementById("showMessage");
+
+        async function init() {
+            try {
+                const res = await fetch('/data');
+                const data = await res.json();
+                console.log(data);
+            } catch (error) {
+                console.error(error.message);
+            }
+        };
+
+        init();
+
+        const sendingPacket = { name: "Alice", age: 26 };
+
+        helloWorld.addEventListener('click', async () => {
+            try {
+                const response = await fetch('/data/fetch', {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(sendingPacket)
+                });
+                const data = await response.json();
+                console.log(data);
+            } catch (error) {
+                console.error(error.message);
+            }
+        });
+
+        function createOptionButton(text) {
+            return `<button>${text}</button>`;
+        }
+
+        function renderScore(score, total) {
+            return `Score:${score} out of ${total}`;
+        }
+
+        function progressBar(current, total) {
+            const percentage = (current / total) * 100;
+            return `
+            <div class="progress-container">
+                <div class="progress-bar" style="width:${percentage}%"></div>
+            </div>
+            `;
+        }
+
+        showMessage.innerHTML = progressBar(10,15);
+
+    </script>
+</body>
+
+</html>

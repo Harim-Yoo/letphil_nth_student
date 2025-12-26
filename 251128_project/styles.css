@@ -1,0 +1,104 @@
+*{
+    font-family: ubuntu, sans-serif;
+    margin:0;
+    padding:0;  
+}
+
+body {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+
+}
+.main-container {
+    border:1px solid;
+    border-radius:5px;
+    background-color:#fbfbfb;
+    width:350px;
+    height:50%;
+    margin:auto;
+    display:flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    
+}
+
+.container1 {
+    padding:1px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    flex: 0 1 auto;
+}
+
+.container2 {
+    padding:1px;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+    align-items:stretch;
+    flex: 2 2 auto;
+}
+
+.child2-1 {
+    flex: 1 1 0%;
+}
+.child2-1 img {
+    width: 100%;
+    height:100%;
+    margin:auto;
+    object-fit: cover;
+    display:block;
+}
+
+.child2-2 {
+    flex:1 1 0%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.child2-2 p {
+    padding:3px;
+}
+.container3 {
+    padding:5px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex:0 1 auto;
+}
+
+button {
+    border:none;
+    background-color: lightgray;
+    padding:7px;
+    border-radius:5px;
+    font-weight:900;
+}
+
+button:hover {
+    color:red;
+}
+
+@media (max-width:768px) {
+    .main-container {
+        width: 90%; /* Falls back to fluid width */
+        max-width:400px;
+
+    }
+
+    .container2 {
+        flex-wrap: wrap; /* Ensure this is on */
+    }
+    
+    /* If the container is still wide enough to fit both side-by-side 
+       at 768px, you might want to force them to stack: */
+    .child2-1, .child2-2 {
+        flex: 1 1 100%; /* Force them to take full width */
+        min-width: 0;   /* Reset min-width to avoid overflow issues */
+        text-align:center;
+    }
+}

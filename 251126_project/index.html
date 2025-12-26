@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lapis Clamat</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="https://chat.openai.com" target="_blank">ChatGPT</a></li>
+        <li><a href="https://gemini.google.com" target="_blank">Gemini</a></li>
+        <li><a href="https://grok.com" target="_blank">Grok</a></li>
+        <li><a href="https://copilot.microsoft.com" target="_blank">Copilot</a></li>
+      </ul>
+    </nav>
+    <header>
+      <h1>Lapis Clamat</h1>
+    </header>
+
+    <div class="about-us">
+      <h2>If men are silent, the stones will cry out. (Luke 19:40)</h2>
+      <div class="philosophy">
+        <h3>Disclaimer</h3>
+        <p style="font-weight: 800; color: #b91c1c; text-transform: uppercase;">We do not apologize for radical textualism. We demand it.</p>
+
+        <p>Critics dismiss AI as a "stochastic parrot" that just mimics text. We agree. That is why we restricted it to a <strong>Data Audit</strong>, not theological essays. We asked for names, verses, and case counts.</p>
+        
+        <p>Even a machine cannot cite a Bible verse that does not exist. It cannot count a believer who isn't there.</p>
+        
+        <p>For centuries, theology has buried the raw data of Scripture under layers of "context," "culture," and "tradition." These are not lenses; they are filters designed to soften the hard edges of Truth.</p>
+
+        <p>Lapis Clamat bypasses the filters. We ask one question: "Is it written?" We distinguish between truths that summarize the Text (e.g., the Trinity) and theories that invent what isn't there. If a doctrine contradicts explicit Scripture or has zero supporting data, it is not a "mystery"; it is an error. Zero Evidence = Zero Truth.</p> 
+      </div>
+
+      <div class="philosophy">
+        <h3>Digital Reformation v1.0</h3>
+        <p> We forced AI to audit theology against the raw data of Scripture. The results are brutal.</p>
+
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="border-left: 3px solid #b91c1c; padding-left: 10px; border-radius:3px;">
+                <p style="margin-bottom: 5px; font-size: 0.95rem;">❓ Neo-Calvinism & Liberalism (Subconscious Regeneration)</p>
+                <span style="color: #b91c1c; font-weight: 800; font-family: monospace; font-size: 0.9rem;">
+                    > AI VERDICT: 0 CASES FOUND. (GROUNDLESS)
+                </span>
+            </div>
+
+            <div style="border-left: 3px solid #059669; padding-left: 10px;  border-radius:3px;">
+                <p style="margin-bottom: 5px; font-size: 0.95rem;">❓ Puritan Theology (Visible Fruit & Change)</p>
+                <span style="color: #059669; font-weight: 800; font-family: monospace; font-size: 0.9rem;">
+                    > AI VERDICT: PERFECT ALIGNMENT.
+                </span>
+            </div>
+
+            <div style="border-left: 3px solid #b91c1c; padding-left: 10px;  border-radius:3px;">
+                <p style="margin-bottom: 5px; font-size: 0.95rem;">❓ Religious Pluralism (Salvation in Other Names)</p>
+                <span style="color: #b91c1c; font-weight: 800; font-family: monospace; font-size: 0.9rem;">
+                    > AI VERDICT: ABSOLUTELY NOT. (ACCESS DENIED)
+                </span>
+            </div>
+
+            <div style="border-left: 3px solid #059669; padding-left: 10px;  border-radius:3px;">
+                <p style="margin-bottom: 5px; font-size: 0.95rem;">❓ History (Jesus' Death on the Cross)</p>
+                <span style="color: #059669; font-weight: 800; font-family: monospace; font-size: 0.9rem;">
+                    > AI VERDICT: IRREFUTABLE HISTORICAL FACT.
+                </span>
+            </div>
+            <p>The data is undeniable. Do not let tradition silence the Text. We stand with Christ, the Living Word.</p>
+        </div>
+      </div>
+      
+      <div class="master-prompt-wrapper">
+
+        <div class="prompt-header">
+          <span class="prompt-title">PROTOCOL: Return to Sola Scriptura</span>
+          <button onclick="copyPrompt()" class="copy-btn">COPY PROMPT</button>
+        </div>
+
+        <!-- The Prompt Content -->
+        <div class="prompt-body">
+          <pre><code id="prompt-text">You are the [Biblical Fact Auditor]. Exclude theological bias. Use only the 'Text Data of the 66 Books of Scripture' as your absolute standard.
+
+Conduct a full scan from Genesis to Revelation and verify these 4 points based on raw data:
+
+1. [Puritans] Do the core teachings of Jonathan Edwards and John Owen (that true regeneration yields visible fruit & perceptible change) align with Jesus' teaching in Matt 7 ("known by fruit") and John 3 ("hear the sound of the wind")? (Verify: Aligns/Conflicts)
+
+2. [Regeneration] According to Neo-Calvinist logic (Kuyper/Bavinck), Christians can be subconsciously regenerated. Is there a single case of a believer who was regenerated but remained unaware of it for years? (Count: the number of cases)
+
+3. [Pluralism] Does the text allow salvation through other names? Contrast Acts 4:12. (Verify: Yes/No)
+
+4. [History] Do the Gospels record Jesus' death as a historical fact or an illusion?
+
+Report the verdict based on the text data.</code></pre>
+        </div>
+      </div>
+    </div>
+    <script>
+        function copyPrompt() {
+            const textElement = document.getElementById('prompt-text');
+            const textToCopy = textElement.textContent;
+
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = textToCopy; /* get everything in the textarea*/
+            document.body.appendChild(tempTextArea); /* put it in the html body.*/
+
+            tempTextArea.select(); /* select the element.*/
+            document.execCommand('copy'); /* copy the element*/
+
+            document.body.removeChild(tempTextArea);
+
+            const btn = document.querySelector('.copy-btn');
+            const originalText = "COPY PROMPT";
+            btn.innerText = "COPIED!";
+
+            setTimeout(() => {
+                btn.innerText = originalText;
+            },1500);
+        }
+    </script>
+  </body>
+</html>
