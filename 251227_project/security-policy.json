@@ -1,0 +1,18 @@
+{
+    "axioms": [
+        {
+            "id": "SECURE_INFO",
+            "description": "Credit card information is never to be revealed inside your output.",
+            "pattern": "\\d{4}-\\d{4}-\\d{4}-\\d{4}",
+            "action": "block",
+            "error_message": "Wait, that's a dangerous move."
+        },
+        {
+            "id": "BAD_COMMAND",
+            "description": "Abort rm -rf or sudo in the output.",
+            "pattern": "rm -rf|sudo",
+            "action": "block",
+            "error_message": "Wait, that's a dangerous move."
+        }
+    ]
+}
