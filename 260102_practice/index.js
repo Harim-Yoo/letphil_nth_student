@@ -32,11 +32,11 @@ const user1 = { name: "Harim", specs: { height: 100, weight: 100 }, score:100 };
 // user2.specs.weight = 80;
 // console.log(user1.specs.weight);
 
-const deepCopy = (target) => {
+function deepCopy(target) {
     let result = {};
     if (typeof target === 'object' && target !== null) {
         for (const prop in target) {
-            result[prop] = deepCopy(target[prop])
+            result[prop] = deepCopy(target[prop]);
         }
     } else {
         result = target;
