@@ -61,7 +61,7 @@ type MovieList = string[] // you can write interface, too. I prefer type for no 
 
 const MovieChecker = () => {
 
-    const [movieList, setMovieList] = useState<MovieList>['Jurrasic Park','Interstellar',"Zootopia"]
+    const [movieList, setMovieList] = useState<MovieList>(['Jurrasic Park','Interstellar',"Zootopia"])
     
     const addMovie = () => {
         setMovieList([...movieList,"Golden"])}
@@ -77,7 +77,7 @@ const MovieChecker = () => {
             </ul>
         </div>
     )
-        
+
 export default MovieChecker;
 
 --------------------------------------------------------------------------------------------------------------
