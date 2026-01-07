@@ -2,42 +2,95 @@
 // ----------------------------------------------
 // GOAL: Practice selectors, textContent, and creating/removing elements.
 
+
 const moviesTitle = document.getElementById('moviesTitle');
 const moviesInfo = document.getElementById('moviesInfo');
 const moviesList = document.getElementById('moviesList');
+
+/*For Extra Fun */
+
+const moviesArray = ['Jurrasic Park','Interstellar',"Zootopia"];
+
+moviesArray.forEach((item) => {
+    const li = document.createElement('li');
+    li.textContent = item;
+    li.classList.add("movie-item");
+    moviesList.appendChild(li);
+});
+
 moviesTitle.textContent = "Wave 7 Movie List";
+
 const movieCount = moviesList.children.length;
+
+/*For extra fun* const movieCount_v2 = document.querySelectorAll(".movie-item").length; This is way too long to read...*/
+
 moviesInfo.textContent = `You current have ${movieCount} favorite movies in your list.`;
 
-// STEP 1: Select the heading element with id "moviesTitle" and store
-//         it in a variable.
+const newList = document.createElement('li');
+newList.textContent = "Golden";
+newList.classList.add("movie-item");
+moviesList.appendChild(newList);
 
-// STEP 2: Select the paragraph with id "moviesInfo" and store it
-//         in a variable.
+const newMoviecount = moviesList.children.length;
 
-// STEP 3: Select the list with id "moviesList" and store it in a variable.
+moviesInfo.textContent = `You current have ${newMoviecount} favorite movies in your list.`;
+
+const randomIndex = Math.floor(Math.random() * movieCount);
+const randomMovieToDelete = document.querySelectorAll('.movie-item')[randomIndex];
+randomMovieToDelete.remove();
+
+const newnewMovieCount = moviesList.children.length;
+moviesInfo.textContent = `You current have ${newnewMovieCount} favorite movies in your list.`;
+
+
+/* FOR THE OPTIONAL PART:
+
+I can see why this is in the homework. Unless you change the DOM directly, this won't change the screen. Vanilla JS might be fast enough to change things directly, but they don't reload it for us, unfortunately. NO AUTOMATIC RELOADING.
+
+This might be why we can pull it off better at React or Next.js because they use virtual DOM to print this right away. I learned that Vanilla JS is fastest, but for more interactiveness, why not React? Of course, Vanilla JS is cool to see that we can change each thing at a time. 
+
+I have practiced React / Next.js over the christmas break for some time, and this is how I would write down the component for <ul/> part. Didn't write down tailwind, but still it's cool to see that useState would be a good thing in this situation.
+
+--------------------------------------------------------------------------------------------------------------
+
+'use client'
+
+import { useState } from 'react';
+
+type MovieList = string[] // you can write interface, too. I prefer type for no reason. 
+
+const MovieChecker = () => {
+
+    const [movieList, setMovieList] = useState<MovieList>['Jurrasic Park','Interstellar',"Zootopia"]
+    
+    const addMovie = () => {
+        setMovieList([...movieList,"Golden"])}
+    }
+    return (
+        <div>
+            <ul className="movie-list">
+                {movieList.map((item,idx) => (
+                    <li key={idx} className = "movie-item">
+                        {item}
+                    </li>
+                ))}
+            </ul>
+        </div>
+    )
+        
+export default MovieChecker;
+
+--------------------------------------------------------------------------------------------------------------
+
+AND put this component in the parent part. Yay!! */
 
 
 
-// STEP 4: Change the textContent of moviesTitle to a new heading,
-//         for example "Wave 7 Movie List".
 
-// STEP 5: Use moviesList.children.length (or querySelectorAll)
-//         to count how many movie items there are.
-//         Store this number in a variable (for example, movieCount).
 
-// STEP 6: Update moviesInfo.textContent to show a message like:
-//         "You currently have X favorite movies in your list."
-//         (Use the value of movieCount in the message.)
 
-// STEP 7: Create a new li element for another movie using
-//         document.createElement("li").
-//         - Set its textContent to a new movie name.
-//         - Add the class "movie-item" to it.
-//         - Append it to moviesList.
 
-// STEP 8: Select one of the existing movie items (for example,
-//         the first one) and remove it using .remove().
 
-// STEP 9: (Optional) After adding/removing, update moviesInfo again
-//         to show the new total number of movies.
+
+
+
