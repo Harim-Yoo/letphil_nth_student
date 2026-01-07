@@ -35,7 +35,7 @@ const newMoviecount = moviesList.children.length;
 
 moviesInfo.textContent = `You current have ${newMoviecount} favorite movies in your list.`;
 
-const randomIndex = Math.floor(Math.random() * movieCount);
+const randomIndex = Math.floor(Math.random() * newMoviecount);
 const randomMovieToDelete = document.querySelectorAll('.movie-item')[randomIndex];
 randomMovieToDelete.remove();
 
