@@ -22,6 +22,15 @@
 // STEP 2: (Optional) console.log some of these variables to make
 //         sure you selected them correctly.
 
+const eventCard = document.getElementById('eventCard');
+const cardTitle = document.getElementById('cardTitle');
+const cardDescription = document.getElementById('cardDescription');
+const changeTitleBtn = document.getElementById('changeTitleBtn');
+const counterValue = document.getElementById('counterValue');
+const previewInput = document.getElementById('previewInput');
+const previewText = document.getElementById('previewText');
+
+console.log(eventCard);
 // ==============================================
 // TASK 2 – CLICK EVENT: CHANGE TITLE TEXT
 // ==============================================
