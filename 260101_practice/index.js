@@ -25,7 +25,6 @@ Memory 9002 (Heap - Edited):
 */
 const obj2 = obj1 ; // Memory 1002 (Stack) : key:obj2 , value:@5001
 const obj3 = {...obj2}
-obj3.age = 
 /*
 Memory 1003 (Stack) : key:obj3 , value: @5003
 Memory 5003 (Heap) : Header : @9002, Offset0: 20, Offset1: @5002
