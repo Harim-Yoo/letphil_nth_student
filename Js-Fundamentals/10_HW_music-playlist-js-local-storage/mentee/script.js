@@ -33,8 +33,8 @@ const savePlaylist = () => {
 const renderPlaylist = (songsToRender) => {
   playlistContainer.innerHTML = ""
   songsToRender.forEach((song, index) => {
-    const newDiv = document.createElement("div")
-    newDiv.classList.add("song-card")
+    const newDiv = document.createElement("div");
+    newDiv.classList.add("song-card");
     newDiv.innerHTML = 
     `
       <strong>${song.title}</strong><br>
