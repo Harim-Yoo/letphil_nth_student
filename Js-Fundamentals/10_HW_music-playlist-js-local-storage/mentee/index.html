@@ -1,46 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>🎵 Custom Music Playlist Builder</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div class="container">
-      <h1>Build Your Vibe Playlist</h1>
 
-      <button id="toggleModeBtn">Dark Mode</button>
-      <form id="songForm">
-        <label>Song Title</label>
-        <input type="text" id="title" autocomplete="off"/>
-        
-        <label>Artist</label>
-        <input type="text" id="artist" autocomplete="off"/>
-        
-        <label>Song Link</label> 
-        <input type="text" id="link" autocomplete="off"/>
-        
-        <label>Mood</label>
-        <select id="mood">
-          <option>Chill</option>
-          <option>Hype</option>
-          <option>Romantic</option>
-          <option>Sad</option>
-        </select>
-        <button type="submit">Add Song</button>
-        <select id="filterMood">
-          <option value="all">all</option>
-          <option value="chill">chill</option>
-          <option value="hype">hype</option>
-          <option value="romantic">romantic</option>
-          <option value="sad">sad</option>
-        </select>
-        <button type="button" id="shuffleBtn">Shuffle Playlist</button>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🎵 Custom Music Playlist Builder</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
 
-        <div id="playlist" class="playlist-container"></div>
-      </form>
-    </div>
-    <script src="script.js"></script>
-  </body>
+<body>
+  <div class="container">
+    <h1>Build Your Vibe Playlist</h1>
+
+    <button id="toggleModeBtn">Dark Mode</button>
+    <form id="songForm">
+      <label>Song Title</label>
+      <input type="text" id="titleInput" autocomplete="off" />
+      <label>Artist</label>
+      <input type="text" id="artistInput" autocomplete="off" />
+      <label>Song Link</label>
+      <input type="text" id="linkInput" autocomplete="off" />
+      <label>Mood</label>
+      <select id="moodInput">
+        <option>Chill</option>
+        <option>Hype</option>
+        <option>Romantic</option>
+        <option>Sad</option>
+      </select>
+
+      <button type="submit">Add Song</button>
+      <select id="filterMood">
+        <option value="all">all</option>
+        <option value="chill">chill</option>
+        <option value="hype">hype</option>
+        <option value="romantic">romantic</option>
+        <option value="sad">sad</option>
+      </select>
+      <button type="button" id="shuffleBtn">Shuffle Playlist</button>
+      <div id="playlistContainer" class="playlist-container"></div>
+    </form>
+  </div>
+  <!--<script src="script.js"></script>-->
+  <script src="script2.js"></script>
+  
+</body>
+
 </html>

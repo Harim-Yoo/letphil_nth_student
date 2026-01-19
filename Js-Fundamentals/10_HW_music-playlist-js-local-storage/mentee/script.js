@@ -1,14 +1,14 @@
 let playlist = [];
 
-const titleInput = document.getElementById("title")
-const artistInput = document.getElementById("artist")
-const linkInput = document.getElementById("link")
-const moodInput = document.getElementById("mood")
-const songForm = document.getElementById("songForm")
-const playlistContainer = document.getElementById("playlist")
-const filterMoodSelect = document.getElementById("filterMood")
-const shuffleBtn = document.getElementById("shuffleBtn")
-const toggleModeBtn = document.getElementById("toggleModeBtn")
+const songForm = document.getElementById("songForm");
+const filterMood = document.getElementById('filterMood');
+const shuffleBtn = document.getElementById("shuffleBtn");
+const playlistContainer = document.getElementById("playlistContainer");
+const titleInput = document.getElementById("titleInput");
+const artistInput = document.getElementById("artistInput");
+const linkInput = document.getElementById("linkInput");
+const moodInput = document.getElementById("moodInput");
+const toggleModeBtn = document.getElementById("toggleModeBtn");
 
 const loadPlaylist = () => {
   const savedData = localStorage.getItem("customPlaylist")
@@ -31,7 +31,7 @@ const savePlaylist = () => {
 }
 
 const renderPlaylist = (songsToRender) => {
-  playlistContainer.innerHTML = ""
+  playlistContainer.innerHTML = "";
   songsToRender.forEach((song, index) => {
     const newDiv = document.createElement("div");
     newDiv.classList.add("song-card");
