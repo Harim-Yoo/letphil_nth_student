@@ -32,14 +32,14 @@ const catFactText = document.getElementById("catFactText");
 const spaceBtn = document.getElementById("activityBtn");
 const spaceText = document.getElementById("activityText");
 
-adviceBtn.addEventListener('click', async ()=>{
+adviceBtn.addEventListener('click', async () => {
   adviceText.textContent = "Loading Advice...";
   try {
-  const data = await fetch("https://api.adviceslip.com/advice");
-  const res = await data.json();
-  const showData = res.slip.advice;
-  adviceText.textContent = showData;
-  } catch(e) {
+    const data = await fetch("https://api.adviceslip.com/advice");
+    const res = await data.json();
+    const showData = res.slip.advice;
+    adviceText.textContent = showData;
+  } catch (e) {
     throw e;
   }
 });
@@ -62,12 +62,12 @@ adviceBtn.addEventListener('click', async ()=>{
 //              * Set adviceText.textContent to a friendly error message
 //                like "Could not load advice. Try again."
 
-catFactBtn.addEventListener('click', async ()=>{
-  try{
-  const data = await fetch("https://catfact.ninja/fact")
-  const res = await data.json();
-  catFactText.textContent = res.fact;
-  } catch(e) {
+catFactBtn.addEventListener('click', async () => {
+  try {
+    const data = await fetch("https://catfact.ninja/fact")
+    const res = await data.json();
+    catFactText.textContent = res.fact;
+  } catch (e) {
     throw e
     console.log(e)
   }
@@ -92,26 +92,26 @@ catFactBtn.addEventListener('click', async ()=>{
 
 spaceBtn.addEventListener('click', async () => {
   spaceText.innerHTML = "Loading Space Photo..."
-  try{
-  const response = await fetch("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&count=1")
-  if (!response.ok) {
-    throw new Error;
-  }
-  const data = await response.json();
-  const apod = data[0];
-  if (apod.media_type === "video") {
-    spaceText.innerHTML = `
+  try {
+    const response = await fetch("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&count=1")
+    if (!response.ok) {
+      throw new Error;
+    }
+    const data = await response.json();
+    const apod = data[0];
+    if (apod.media_type === "video") {
+      spaceText.innerHTML = `
     <p>Title: ${apod.title}</p>
     <p>Explanation: ${apod.explanation}</p>
     <a href= ${apod.url}/>`
-  } else {
-    spaceText.innerHTML = `
+    } else {
+      spaceText.innerHTML = `
     <p>Title: ${apod.title}</p>
     <img src= ${apod.url}/>
     <p>Explanation: ${apod.explanation}</p>
     `
-  }
-  } catch(e) {
+    }
+  } catch (e) {
     console.log(e)
     spaceText.textContent = "Could not load the space photo. Try again later."
   }
