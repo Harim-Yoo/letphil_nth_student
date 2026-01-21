@@ -2,8 +2,9 @@
 // ----------------------------------------------
 //
 // We are using Axios from a CDN + async/await:
-// <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-//
+
+
+
 // APIs:
 // - Advice API: https://api.adviceslip.com/advice
 // - Cat Fact API: https://catfact.ninja/fact
@@ -14,17 +15,14 @@
 // - That means response.data is like: [ { ...apodItem... } ]
 // - So we must use response.data[0] to access the actual APOD item.
 //
-// ==============================================
-// STEP 1 – SELECT ELEMENTS
-// ==============================================
-//
-// STEP 1: Select and store the following elements in variables:
-//         - adviceBtn (id "adviceBtn")
-//         - adviceText (id "adviceText")
-//         - catFactBtn (id "catFactBtn")
-//         - catFactText (id "catFactText")
-//         - spaceBtn (id "spaceBtn")
-//         - spaceDisplay (id "spaceDisplay")
+
+
+const adviceBtn = document.getElementById("adviceBtn");
+const adviceText = document.getElementById("adviceText");
+const catFactBtn = document.getElementById('catFactBtn');
+const catFactText = document.getElementById("catFactText");
+const spaceBtn = document.getElementById("spaceBtn");
+const spaceDisplay = document.getElementById("spaceDisplay");
 
 // ==============================================
 // TASK 1 – RANDOM ADVICE (AXIOS + ASYNC/AWAIT)
@@ -47,6 +45,22 @@
 //             * Log the error to the console.
 //             * Set adviceText.textContent to "Could not load advice. Try again.".
 
+adviceBtn.addEventListener("click", async () => {
+    adviceText.textContent = "Loading advice...";
+    try {
+        const response = await axios.get("https://api.adviceslip.com/advice");
+        if (!response.data) {
+            throw new Error("Hey, I don't get any data fetched")
+        }
+        const advice = await response.data.slip.advice; 
+        adviceText.textContent = advice;
+    } catch(err) {
+        console.log(err);
+        adviceText.textContent = "Could not load advice. Try again."
+    }
+})
+
+
 // ==============================================
 // TASK 2 – RANDOM CAT FACT (AXIOS + ASYNC/AWAIT)
 // ==============================================
@@ -67,6 +81,21 @@
 //         - Inside catch:
 //             * Log the error.
 //             * Set catFactText.textContent to "Could not load cat fact. Try again.".
+
+catFactBtn.addEventListener("click", async () => {
+    catFactText.textContent = "Loading cat fact..."
+    try {
+        const response = await axios.get("https://catfact.ninja/fact");
+        if (!response.data) {
+            throw new Error("Data not fetched");
+        }
+        const fact = response.data?.fact;
+        catFactText.textContent = fact;
+    } catch(err) {
+        console.log(err) 
+        catFactText.textContent = "Could not load cat fact. Try Again."
+    } 
+})
 
 // ==============================================
 // TASK 3 – RANDOM SPACE PHOTO (NASA APOD)
