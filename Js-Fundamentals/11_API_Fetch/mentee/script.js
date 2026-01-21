@@ -34,11 +34,11 @@ const spaceText = document.getElementById("activityText");
 
 adviceBtn.addEventListener('click', async ()=>{
   adviceText.textContent = "Loading Advice...";
+  try {
   const data = await fetch("https://api.adviceslip.com/advice");
   const res = await data.json();
-  try {
-    const showData = res.slip.advice;
-    adviceText.textContent = showData;
+  const showData = res.slip.advice;
+  adviceText.textContent = showData;
   } catch(e) {
     throw e;
   }
@@ -62,26 +62,16 @@ adviceBtn.addEventListener('click', async ()=>{
 //              * Set adviceText.textContent to a friendly error message
 //                like "Could not load advice. Try again."
 
-// adviceBtn.addEventListener("click", () => {
-//   adviceText.textContent = "Loading advice...";
-//   let data = fetch("https://api.adviceslip.com/advise")
-//     .then((response) => {
-//       return response.json();
-//     })
-//     .then((data) => {
-//       let newAdviceText = data.advice;
-//       adviceText.textContent = newAdviceText;
-//     })
-//     .catch(function (error) {
-//       console.log(error);
-//       adviceText.textContent = "Could not load advice. Try again.";
-//     });
-// });
-
-// adviceBtn.addEventListener("click", () => {
-//   fetch("https://api.adviceslip.com/advice")
-//   .then(function (response))
-// });
+catFactBtn.addEventListener('click', async ()=>{
+  try{
+  const data = await fetch("https://catfact.ninja/fact")
+  const res = await data.json();
+  catFactText.textContent = res.fact;
+  } catch(e) {
+    throw e
+    console.log(e)
+  }
+})
 
 // ==============================================
 // TASK 2 – RANDOM CAT FACT
@@ -100,23 +90,32 @@ adviceBtn.addEventListener('click', async ()=>{
 //              * Log the error.
 //              * Show a friendly error message in the UI.
 
-catFactBtn.addEventListener("click", () => {
-  catFactText.textContent = "Loading cat fact...";
-
-  fetch("https://catfact.ninja/fact")
-    .then((response) => {
-      return response.json();
-    })
-    .then((data) => {
-      let newCatFactText = data.fact;
-      catFactText.textContent = newCatFactText;
-    })
-    .catch(function (error) {
-      console.log(error);
-      catFactText.textContent = "Could not load cat fact. Try again.";
-    });
-});
-
+spaceBtn.addEventListener('click', async () => {
+  spaceText.innerHTML = "Loading Space Photo..."
+  try{
+  const response = await fetch("https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&count=1")
+  if (!response.ok) {
+    throw new Error;
+  }
+  const data = await response.json();
+  const apod = data[0];
+  if (apod.media_type === "video") {
+    spaceText.innerHTML = `
+    <p>Title: ${apod.title}</p>
+    <p>Explanation: ${apod.explanation}</p>
+    <a href= ${apod.url}/>`
+  } else {
+    spaceText.innerHTML = `
+    <p>Title: ${apod.title}</p>
+    <img src= ${apod.url}/>
+    <p>Explanation: ${apod.explanation}</p>
+    `
+  }
+  } catch(e) {
+    console.log(e)
+    spaceText.textContent = "Could not load the space photo. Try again later."
+  }
+})
 // ==============================================
 // TASK 3 – RANDOM SPACE PHOTO (NASA APOD)
 // ==============================================
