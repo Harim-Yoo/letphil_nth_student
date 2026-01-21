@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Changer</title>
+</head>
+<body>
+
+    <script>
+        function bgColorchange(color) {
+            const btn = document.createElement('button');
+            btn.textContent = `Change Color to ${color}`;
+            document.body.appendChild(btn);
+            
+            const delBtn = document.createElement('button');
+            document.body.appendChild(delBtn);
+            delBtn.textContent = `Delete All`;
+
+            delBtn.addEventListener('click', () => {
+                const allBtn = document.querySelectorAll('button');
+                //allBtn.remove();
+                allBtn.forEach((btn) => btn.remove()); 
+            })
+
+            btn.addEventListener('click', () => {
+                if (btn.classList.contains("selected")) {
+                    document.body.style.backgroundColor = "";
+                    btn.classList.remove("selected");
+                } else {
+                btn.classList.add("selected");
+                document.body.style.backgroundColor = color;
+                }
+            });
+
+            return btn;
+        }
+
+        bgColorchange("blue");
+    </script>
+</body>
+</html>
