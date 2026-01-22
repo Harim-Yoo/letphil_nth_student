@@ -29,6 +29,7 @@ func main() {
 	}
 	fmt.Println(library)
 
+	// Delete Practice
 	var newLibrary []Book
 
 	for _, s := range library {
@@ -39,12 +40,13 @@ func main() {
 	library = newLibrary
 	fmt.Println(library)
 
-	for i, s := range library {
-		if s.Stock >= 1 {
-			library = append(library[:i], library[i+1:]...)
-			break
+	var finalLibrary []Book
+	for _, b := range library {
+		if b.Stock >= 1 {
+			finalLibrary = append(finalLibrary, b)
 		}
 	}
+	library = finalLibrary
 	fmt.Println(library)
 
 }
