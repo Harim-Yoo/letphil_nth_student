@@ -80,8 +80,8 @@ const addSong = (event) => {
   }
   
   playlist.push(newObject);
-  savePlaylist();
   renderPlaylist(playlist);
+  savePlaylist();  
   songForm.reset();
   console.log("New song added:", newObject);
   return;
@@ -114,10 +114,10 @@ const toggleDarkMode = () => {
   document.body.classList.toggle("dark")
   const isDark = document.body.classList.contains("dark")
   if (isDark) {
-    toggleModeBtn.textContent = "Light Mode"
+    toggleModeBtn.textContent = "Dark Mode"
     localStorage.setItem("theme","dark")
   } else {
-    toggleModeBtn.textContent = "Dark Mode"
+    toggleModeBtn.textContent = "Light Mode"
     localStorage.setItem("theme","light")
   }
   console.log("Dark mode toggled:", isDark)
@@ -127,12 +127,12 @@ const loadTheme = () => {
   const currentTheme = localStorage.getItem("theme")
   if (currentTheme === "dark") {
     document.body.classList.add("dark");
-    toggleModeBtn.textContent = "Dark Mode";
+    toggleModeBtn.textContent = "Light Mode";
     console.log("Dark Theme is loaded");
     return;
   } else {
     document.body.classList.add("light");
-    toggleModeBtn.textContent = "Light Mode";
+    toggleModeBtn.textContent = "Dark Mode";
     console.log("Light Theme is loaded");
     return;
   }
