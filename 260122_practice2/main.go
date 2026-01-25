@@ -18,35 +18,27 @@ func main() {
 	fmt.Println(library)
 
 	// Create Practice
-	library = append(library, Book{Title: "The Alchemist", Stock: 3})
+	library = append(library, Book{Title: "Hello World", Stock: 2})
+
 	fmt.Println(library)
 
-	// Update Practice
+	// Replace Practice
 	for i, b := range library {
-		if b.Title == "Harry Potter" {
-			library[i].Stock = 20
+		if b.Stock == 2 {
+			library[i].Stock = 3
 		}
 	}
 	fmt.Println(library)
 
 	// Delete Practice
-	var newLibrary []Book
+	var UpdateLibrary []Book
 
-	for _, s := range library {
-		if s.Title != "Lord of the Rings" {
-			newLibrary = append(newLibrary, s)
-		}
-	}
-	library = newLibrary
-	fmt.Println(library)
-
-	var finalLibrary []Book
 	for _, b := range library {
-		if b.Stock >= 1 {
-			finalLibrary = append(finalLibrary, b)
+		if b.Title != "Hello World" {
+			UpdateLibrary = append(UpdateLibrary, b)
+			library = UpdateLibrary
 		}
 	}
-	library = finalLibrary
 	fmt.Println(library)
 
 }
