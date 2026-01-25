@@ -16,6 +16,7 @@ type Worship struct {
 }
 
 func main() {
+
 	db, err := sql.Open("mysql", "root:6190@tcp(127.0.0.1:3306)/practice_db")
 	if err != nil {
 		log.Fatal("DB 접속 정보 설정 실패:", err)
@@ -27,23 +28,27 @@ func main() {
 	fmt.Println("MySQL DB 연결 성공!")
 	defer db.Close()
 
-	http.HandleFunc("/api/worship", func(w http.ResponseWriter, r *http.Request) {
-		w.Header().Set("Access-Control-Allow-Origin", "*")
+	h1 := func(w http.ResponseWriter, _ *http.Request) {
+		w.Header().Set("Access-Control-Allow-Origin", "http://localhost:3000")
 		w.Header().Set("Content-Type", "application/json")
 
 		var wData Worship
-		err := db.QueryRow("SELECT id, url FROM worship_live ORDER BY id DESC LIMIT 1").Scan(&wData.ID, &wData.Url)
+		QueryData := db.QueryRow("SELECT id, url FROM worship_live ORDER BY id DESC LIMIT 1")
+		err := QueryData.Scan(&wData.ID, &wData.Url)
 		if err != nil {
-			fmt.Println("데이터 가져오기 실패 혹은 없음: ", err)
+			log.Println(err)
 			json.NewEncoder(w).Encode(map[string]string{"error": "No data to fetch"})
 			return
 		}
-
 		json.NewEncoder(w).Encode(wData)
-	})
+	}
+
+	http.HandleFunc("/api/worship", h1)
 
 	fmt.Println("Go server at 8080")
+
 	if err := http.ListenAndServe(":8080", nil); err != nil {
 		log.Fatal(err)
 	}
+
 }
