@@ -7,40 +7,8 @@
     <title>LetPhil Fitness Tracker</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <header class="header">
-        <a href="./index.html" class="homeTag">Home</a>
-        <a href="./logworkout.html" class="logTag">Log Your Workout</a>
-        <a href="./showexercise.html" class="learnTag">Learn Random Exercises</a>
-    </header>
-    <main class="flex flex-col justify-center items-center min-h-screen">
-        <section id="logWorkout">
-            <div class="flex flex-col gap-2 border-2 justify-center items-center">
-                <div><label for="date">Date</label><input type="date" id="selectedDate"/></div>
-                
-                <label for="type">Type</label>
-                    <div class="flex flex-row">
-                    <input type="checkbox" id="checkCardio" value="cardio" /><label for="cardio">Cardio</label>
-                    <input type="checkbox" id="checkLeg" value="Leg" /><label for="leg">Leg</label>
-                    <input type="checkbox" id="checkChest" value="chest" /><label for="chest">Chest</label>
-                    <input type="checkbox" id="checkBack" value="back" /><label for="back">Back</label>
-                    </div>
-                <label for="duration">Duration</label><input type="number" placholder="Write down hours" class="border-2" id="durationData"/>
-            </div>
-            
-        </section>
-            <button id="saveData" class="bg-slate-100 p-3 rounded-xl"> Save Data </button>
-            <button id="showData" class="bg-slate-100 p-3"> Show Data</button>
-            <button id="delData" class="bg-slate-100 p-3"> Delete All </button>
-        <section id="showResults">
-        </section>
-        </div>
-    </main>
-    <footer>
-        Copyright @ Harim Yoo
-    </footer>
-    <script src="script.js"></script>
+<script src="script-log.js"></script>
 </body>
 
 </html>

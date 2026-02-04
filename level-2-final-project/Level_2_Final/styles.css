@@ -14,12 +14,14 @@ body {
 
 header {
     padding: 10px;
-    background-color: black;
+    background-color: darkslategray;
     display:flex;
     justify-content:space-evenly;
     align-items:start;
     gap:10px;
 }
+
+/* Index.html */
 
 .homeTag, .logTag, .learnTag {
     background-color: lightgrey;
@@ -35,6 +37,7 @@ header {
     color:black;
     transition-duration: 50ms;
 }
+
 main {
     display: flex;
     flex-direction: column;
@@ -72,9 +75,7 @@ main h3 {
 .mailInfo {
     display:flex;
     text-decoration:none;
-    padding:3px;
-    padding-left:5px;
-    padding-right:5px;
+    padding:3px 10px;
     border-radius:5px;
     background-color: lightsteelblue;
     color:black;
@@ -85,6 +86,101 @@ main h3 {
     background-color:yellow;
     transition-duration: 50ms;
     color:black;
+}
+
+/*LogWorkut.html*/
+
+.logDiv {
+    display:flex;
+    margin:auto;
+    flex-direction:column;
+    justify-content: flex-start;
+    align-items:center;
+
+    max-width:500px;
+    gap:15px;
+    padding:20px;
+
+}
+
+.dateDiv, .typeDiv, .noteDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items:center;
+    gap:10px;
+    width:100%;
+}
+
+.dateLabel, .typeLabel, .noteLabel {
+    min-width:60px;
+    text-align:center;
+    padding:5px 10px;
+    background-color: lightgray;
+    border-radius:5px;
+    font-weight: bold;
+}
+
+.dateInput, .noteInput {
+    background-color:ghostwhite;
+    color:black;
+    text-align: left;
+    border: 1px solid #ccc;
+    border-radius:5px;
+    padding:5px;
+    flex-grow:1;
+}
+
+.typeDiv label {
+    color: white;
+    cursor: pointer; /* 마우스 올리면 손가락 모양 */
+    margin-right: 10px; /* 체크박스 라벨 간격 */
+}
+
+#cardio, #leg, #back, #chest {
+    color:white;
+}
+
+.showDataBtn {
+    width:100px;
+    max-width: 200px;
+    padding: 10px 20px;
+    margin:auto;
+    color:black;
+    background-color:ghostwhite;
+    border-radius: 5px;
+    padding:5px;
+    border: none;
+    font-size:1rem;
+    cursor:pointer;
+    font-weight:bold;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.showDataBtn:hover {
+    transform: translateY(-1px);
+    background-color: #e0e0e0;
+    transition-duration: 50ms;
+}
+
+#showData * {
+    background-color: transparent;
+}
+
+#showData {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    padding: 20px;
+    width: 100%;
+    max-width:500px;
+    margin:auto;
+
+    color: yellow;
+    padding: 20px;
+    border-radius: 10px;
+    box-sizing: border-box; /* 패딩 줘도 너비 안 깨지게 */
 }
 
 footer {
