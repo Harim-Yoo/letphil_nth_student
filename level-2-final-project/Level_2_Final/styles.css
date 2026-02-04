@@ -1,0 +1,97 @@
+* {
+    font-family: ubuntu, sans-serif;
+    margin:0;
+    padding:0;
+    background-color:black;
+}
+
+body {
+    display:flex;
+    flex-direction: column;
+    justify-content:space-between;
+    min-height:100vh;
+}
+
+header {
+    padding: 10px;
+    background-color: black;
+    display:flex;
+    justify-content:space-evenly;
+    align-items:start;
+    gap:10px;
+}
+
+.homeTag, .logTag, .learnTag {
+    background-color: lightgrey;
+    text-decoration: none;
+    color:black;
+    padding:8px;
+    border-radius:5px;
+    font-weight: 500;
+}
+
+.homeTag:hover, .logTag:hover, .learnTag:hover {
+    background-color:yellow;
+    color:black;
+    transition-duration: 50ms;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin:auto;
+    gap: 10px;
+
+}
+
+main h1 {
+    text-align:center;
+    background-color:black;
+    color:white;
+    padding:20px;
+    border-radius:5px;
+}
+
+main h3 {
+    text-align:center;
+    background-color: #dcdcdd;
+    padding:5px;
+    border-radius:4px;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.mainContact {
+    display:flex;
+    flex-direction:column;
+    gap: 10px;
+    justify-content: center;
+
+
+}
+.mailInfo {
+    display:flex;
+    text-decoration:none;
+    padding:3px;
+    padding-left:5px;
+    padding-right:5px;
+    border-radius:5px;
+    background-color: lightsteelblue;
+    color:black;
+    margin:auto;
+}
+
+.mailInfo:hover {
+    background-color:yellow;
+    transition-duration: 50ms;
+    color:black;
+}
+
+footer {
+    display:flex;
+    flex-direction:column;
+    background-color:black;
+    color:white;
+    padding:10px;
+    align-items:center;
+}

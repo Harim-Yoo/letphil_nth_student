@@ -20,10 +20,7 @@ type Post struct {
 	CreatedAt time.Time `json:"created_at"`
 }
 
-var db *sql.DB
-
 func main() {
-	var err error
 
 	dsn := "root:6190@tcp(127.0.0.1:3306)/practice_db?parseTime=true"
 
@@ -66,5 +63,4 @@ func main() {
 	}
 	http.HandleFunc("/api/posts", h1)
 	http.ListenAndServe(":8080", nil)
-
 }
