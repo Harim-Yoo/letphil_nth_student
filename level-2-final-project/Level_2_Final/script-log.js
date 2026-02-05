@@ -3,31 +3,31 @@
 const header = document.createElement("header");
 const headerInfo = [
     {
-        href:"./index.html",
-        class:"homeTag",
-        desc:"Go Home"
+        href: "./index.html",
+        class: "homeTag",
+        desc: "Go Home"
     },
     {
-        href:"./logworkout.html",
-        class:"logTag",
-        desc:"Log Your Workout"
+        href: "./logworkout.html",
+        class: "logTag",
+        desc: "Log Your Workout"
     },
     {
-        href:"./showexercise.html",
-        class:"learnTag",
-        desc:"Learn New Exercise"
+        href: "./showexercise.html",
+        class: "learnTag",
+        desc: "Learn New Exercise"
     }
 ]
 
 const headerHTML = headerInfo
-    .map((props)=>{
-            return `
+    .map((props) => {
+        return `
             <a href="${props.href}" class="${props.class}">
             ${props.desc}
             </a>
             `
-        })
-    .reduce((a,c)=> {return(a + c)}, "");
+    })
+    .reduce((a, c) => { return (a + c) }, "");
 
 header.innerHTML = headerHTML;
 document.body.prepend(header);
@@ -36,6 +36,13 @@ document.body.prepend(header);
 
 const logDiv = document.createElement("div");
 logDiv.classList.add("logDiv");
+
+/*Body Intro*/
+
+const logIntro = document.createElement("h1");
+logIntro.classList.add("logIntro");
+logIntro.textContent = "Log Your Workout";
+logDiv.appendChild(logIntro);
 
 /*Date Information*/
 
@@ -72,15 +79,15 @@ logDiv.appendChild(typeDiv);
 typeDiv.appendChild(typeLabel);
 
 const checkBoxData = ["cardio", "leg", "chest", "back"];
-const typeHTML = 
+const typeHTML =
     checkBoxData
-    .map((item)=>{
-    return `
+        .map((item) => {
+            return `
         <input type="checkbox" id="check-${item}" value="${item}"/>
-        <label for="check-${item}" id="${item}">${item}</label>
+        <label for="check-${item}" id="${item}">${item.toUpperCase()}</label>
         `
-    })
-    .reduce((a,c)=>{return(a+c)},"");
+        })
+        .reduce((a, c) => { return (a + c) }, "");
 
 typeDiv.innerHTML += typeHTML;
 
@@ -118,7 +125,7 @@ saveDataBtn.classList.add("saveDataBtn");
 btnDiv.appendChild(saveDataBtn);
 
 saveDataBtn.addEventListener('click', () => {
-    showData.textContent = "";
+
     const gatheredData = {};
     const checked = document.querySelectorAll('input[type="checkbox"]');
     let checkedData = [];
@@ -128,26 +135,29 @@ saveDataBtn.addEventListener('click', () => {
         }
     })
 
-    if (!dateInput.value || !noteInput.value || checkedData.length===0) {
-            alert("Make sure you type all required data")
-            return;
-        }
+    if (!dateInput.value || !noteInput.value || checkedData.length === 0) {
+        alert("Make sure you type all required data")
+        return;
+    }
     gatheredData.date = dateInput.value;
     gatheredData.type = checkedData;
     gatheredData.note = noteInput.value;
-    
+
     console.log(gatheredData);
-    const uniqueKey = `exercise_${gatheredData.date}_${Date.now()}` 
-    localStorage.setItem(uniqueKey,JSON.stringify(gatheredData)
+    const uniqueKey = `exercise_${gatheredData.date}_${Date.now()}`
+    localStorage.setItem(uniqueKey, JSON.stringify(gatheredData)
     );
     alert("Saved");
+    dateInput.value = "";
+    checked.forEach(i => i.checked = false);
+    noteInput.value = "";
+    showData.textContent = "";
 });
 
 /* save and show */
 
 const showData = document.createElement("div");
 showData.classList.add("showData");
-showData.id = "showData";
 logDiv.appendChild(showData);
 
 const showDataBtn = document.createElement("button");
@@ -158,19 +168,17 @@ btnDiv.appendChild(showDataBtn);
 
 /* Fetch from LocalStorage */
 
-// const deleteBtn = document.createElement("button");
-// deleteBtn.classList.add("deleteBtn");
-// deleteBtn.id = "deleteBtn";
-// deleteBtn.textContent = "Delete";
-
 showDataBtn.addEventListener("click", () => {
+    
     let displayData = [];
     if (showData.innerHTML !== "") {
         return;
-    } 
+    }
 
+    showData.innerHTML = "";
+    showData.textContent = "";
 
-    for (i=0;i<localStorage.length;i++) {
+    for (i = 0; i < localStorage.length; i++) {
         const currentKey = localStorage.key(i);
         if (!currentKey.includes("exercise")) {
             continue;
@@ -178,82 +186,38 @@ showDataBtn.addEventListener("click", () => {
         const response = localStorage.getItem(currentKey);
         const data = JSON.parse(response);
         displayData.push(data);
+
+        const ul = document.createElement("ul");
+        ul.classList.add("workoutCard");
+        ul.innerHTML = `
+        <ul class="workoutCard"> 
+            <li><span>Date:</span> ${data.date}</li>
+            <li><span>Type:</span> ${data.type}</li>
+            <li><span>Note:</span> ${data.note}</li>
+        </ul>
+        `
+
+        const delBtn = document.createElement("button");
+        delBtn.classList.add("delBtn");
+        delBtn.id = "delBtn";
+        delBtn.textContent = "DELETE";
+
+        delBtn.addEventListener("click", () => {
+            localStorage.removeItem(currentKey);
+            ul.remove();
+        });
+
+        ul.appendChild(delBtn);
+        showData.appendChild(ul);
     }
 
     if (displayData.length === 0) {
-        showData.textContent = "There is no stored data to show."
-        return;
+        const message = "Warning: There is no stored data to show."
+        alert(message.toUpperCase());
     }
-
-    const showDataHTML = displayData.map(item=>{
-        return `
-        <ul class="workoutCard"> 
-            <li><strong>Date:</strong> ${item.date}</li>
-            <li><strong>Type:</strong> ${item.type}</li>
-            <li><strong>Note:</strong> ${item.note}</li>
-        </ul>
-        `
-    }).join("");
-    showData.innerHTML = showDataHTML;
-    
 
 })
 
-
-
-
-// saveData.addEventListener('click', () => {
-//     const date = selectedDate.value;
-//     if (!date) {
-//         alert("Date must be selected");
-//         return;
-//     }
-
-//     const dailyWorkout = [];
-//     checkedData.forEach((item) => {
-//         if (item.checked) {
-//             dailyWorkout.push(item.value);
-//         }
-//     })
-
-//     const hour = durationData.value;
-//     if (!hour) {
-//         alert("Duration time must be inserted");
-//         return;
-//     }
-
-//     const finalData = { date: date, types: dailyWorkout, hour: Number(hour) }
-//     localStorage.setItem(Date(date),JSON.stringify(finalData))
-// })
-
-// showData.addEventListener('click', () => {
-    
-//     if (localStorage.length === "0") {
-//         return null
-//     }
-//     for (i=0; i<localStorage.length;i++){
-//         const key = localStorage.key(i);
-//         const data = localStorage.getItem(key);
-//         const response = JSON.parse(data);
-//         showResults.innerHTML = 
-//         `
-//         <div class="flex flex-row">
-//             Date: ${response.date}, Types: ${response.types}, Hour: ${response.hour}
-//         </div>
-//         `
-//     }
-// })
-
-// delData.addEventListener('click',()=>{
-//     localStorage.clear();
-// })
-
-/*
-**Tech:** HTML, CSS, JavaScript  
-**Features:**  
-✅ Log workouts (date, type, duration, notes)  
-✅ Save and retrieve workouts from Local Storage  
-✅ Fetch exercises from an API ([WGER Workout API](https://wger.de/en/software/api))  
-✅ Filter workouts by type (Cardio, Strength, etc.)  
-✅ Responsive layout with tabbed navigation
-*/
+const footer = document.createElement("footer");
+footer.textContent = "Copyright @ Harim Yoo"
+document.body.append(footer);

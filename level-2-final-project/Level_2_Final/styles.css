@@ -90,19 +90,25 @@ main h3 {
     color:black;
 }
 
-/*LogWorkut.html*/
+/*LogWorkout.html*/
 
 .logDiv {
     display:flex;
     margin:auto;
     flex-direction:column;
-    justify-content: flex-start;
-    align-items:flex-start;
     max-width:500px;
     gap:15px;
     padding:20px;
+    overflow: hidden;
 }
 
+.logIntro {
+    text-align:center;
+    border-radius:5px;
+    padding:10px;
+    background-color:#ffd700;
+
+}
 .dateDiv, .typeDiv, .noteDiv {
     display: flex;
     flex-direction: row;
@@ -145,15 +151,15 @@ main h3 {
 .btnDiv {
     display:flex;
     flex-direction:row;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items:center;
-
     width:100%;
     gap:15px;
-    padding:10px; 
+    padding:10px;
 }
-.saveDataBtn, .showDataBtn, .deleteBtn {
-    width: 120px;           /* 버튼 크기 통일 */
+
+.saveDataBtn, .showDataBtn {
+    width: 120px;
     padding: 10px;
     border-radius: 5px;
     border: none;
@@ -163,13 +169,31 @@ main h3 {
     transition: all 0.2s ease;
 }
 
+.delBtn {
+    width: 100%; 
+    display: block; 
+    margin: 10px auto; 
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: ghostwhite; 
+    color: black;
+    transition: all 0.2s ease;
+}
+
+.delBtn:hover {
+    color: yellow;
+    transition: all 0.2s ease;
+}
 .saveDataBtn:hover, .showDataBtn:hover {
     transform: translateY(-2px);
     background-color: #e0e0e0;
     box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-#showData {
+.showData {
     display:flex;
     flex-direction:column;
     width:100%;
@@ -187,23 +211,50 @@ main h3 {
     padding: 15px;
     margin-bottom: 10px;
     border-radius: 8px;
-    border: 1px solid #444; 
+    border: 2px solid #444; 
     box-shadow: none; 
     list-style: none;
 }
 
-
 .workoutCard * {
-    background-color: transparent;
+    background-color:transparent;
     color: white;
     margin: 5px 0;
 }
 
-.workoutCard strong {
+.workoutCard span {
     color: #ffd700; 
-    background-color: transparent;
 }
 
+/* ShowExercise.html */
+
+.fetchDiv {
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    justify-content:space-evenly;
+    margin:auto;
+}
+
+.fetchDiv h1 {
+    color:white;
+}
+
+.fetchBtn {
+    width: 50%;
+    margin:10px auto;
+    border:none;
+    background-color:gray;
+    padding: 10px;
+    font-weight: 900;
+    border-radius: 1em;
+}
+
+.fetchBtn:hover {
+    transform: translateY(-2px);
+    background-color: #e0e0e0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
 footer {
     display:flex;
     flex-direction:column;

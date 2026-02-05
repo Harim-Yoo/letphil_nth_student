@@ -44,7 +44,8 @@ mainIntro.appendChild(mainIntroH1);
 
 const mainAbout = document.querySelector(".mainAbout");
 const mainAboutH3 = document.createElement("h3");
-mainAboutH3.textContent = "What is this about?";
+const mainAboutText = "What is this about?";
+mainAboutH3.textContent = mainAboutText.toUpperCase();
 mainAbout.appendChild(mainAboutH3);
 
 const aboutContents = document.createElement("div");
@@ -55,7 +56,7 @@ const descSentences= [
 
 const aboutHtmlStrings = descSentences
     .map((item)=>`<p>${item}</p>`)
-    .reduce((acc,cur)=> (acc + cur), "");
+    .join("");
 
 aboutContents.innerHTML = aboutHtmlStrings;
 aboutContents.style.color = "white";
@@ -64,7 +65,8 @@ mainAbout.appendChild(aboutContents);
 
 const mainContact = document.querySelector(".mainContact");
 const mainContactH3 = document.createElement("h3");
-mainContactH3.textContent = "Contact for Further Information";
+const mainContactText = "Contact for Further Information";
+mainContactH3.textContent = mainContactText.toUpperCase();
 mainContact.appendChild(mainContactH3);
 
 const contactP = document.createElement("a");
