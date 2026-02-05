@@ -22,7 +22,9 @@ const headerInfo = [
 const headerHTML = headerInfo
     .map((props)=>{
             return `
-            <a href="${props.href}" class="${props.class}">${props.desc}</a>
+            <a href="${props.href}" class="${props.class}">
+            ${props.desc}
+            </a>
             `
         })
     .reduce((a,c)=> {return(a + c)}, "");
@@ -74,7 +76,8 @@ const typeHTML =
     checkBoxData
     .map((item)=>{
     return `
-        <input type="checkbox" id="check-${item}" value="${item}"/><label for="check-${item}" id="${item}">${item}</label>
+        <input type="checkbox" id="check-${item}" value="${item}"/>
+        <label for="check-${item}" id="${item}">${item}</label>
         `
     })
     .reduce((a,c)=>{return(a+c)},"");
@@ -96,27 +99,26 @@ noteInput.type = "text";
 noteInput.classList.add("noteInput");
 noteInput.id = "noteInput";
 noteInput.style.width = "250px";
+noteInput.autocomplete = "off";
 
 logDiv.append(noteDiv);
 noteDiv.appendChild(noteLabel);
 noteDiv.appendChild(noteInput);
 
-/* Make Btn */
+/* Make Btn for saveData */
 
-const showDataBtn = document.createElement("button");
-showDataBtn.id = "showDataBtn";
-showDataBtn.textContent = "Show";
-showDataBtn.classList.add("showDataBtn");
-logDiv.appendChild(showDataBtn);
+const btnDiv = document.createElement("div");
+logDiv.appendChild(btnDiv);
+btnDiv.classList.add("btnDiv");
 
-/* Show Data */
+const saveDataBtn = document.createElement("button");
+saveDataBtn.id = "saveDataBtn";
+saveDataBtn.textContent = "Save";
+saveDataBtn.classList.add("saveDataBtn");
+btnDiv.appendChild(saveDataBtn);
 
-const showData = document.createElement("div");
-showData.classList.add("showData");
-showData.id = "showData";
-document.body.append(showData);
-
-showDataBtn.addEventListener('click', () => {
+saveDataBtn.addEventListener('click', () => {
+    showData.textContent = "";
     const gatheredData = {};
     const checked = document.querySelectorAll('input[type="checkbox"]');
     let checkedData = [];
@@ -127,32 +129,78 @@ showDataBtn.addEventListener('click', () => {
     })
 
     if (!dateInput.value || !noteInput.value || checkedData.length===0) {
-        alert("Make sure you type all required data")
-        return;
-    }
+            alert("Make sure you type all required data")
+            return;
+        }
     gatheredData.date = dateInput.value;
     gatheredData.type = checkedData;
     gatheredData.note = noteInput.value;
+    
     console.log(gatheredData);
+    const uniqueKey = `exercise_${gatheredData.date}_${Date.now()}` 
+    localStorage.setItem(uniqueKey,JSON.stringify(gatheredData)
+    );
+    alert("Saved");
+});
 
-    showData.innerHTML = `
-        <p>Date : ${gatheredData.date}</p>
-        <p>Workout Types : ${gatheredData.type.map(item=>{
-            return `<span>${item}</span>`
-        }).join(", ")}</p>
-        <p>Note : ${gatheredData.note}</p>
-    `
+/* save and show */
+
+const showData = document.createElement("div");
+showData.classList.add("showData");
+showData.id = "showData";
+logDiv.appendChild(showData);
+
+const showDataBtn = document.createElement("button");
+showDataBtn.classList.add("showDataBtn");
+showDataBtn.id = "showDataBtn";
+showDataBtn.textContent = "Show"
+btnDiv.appendChild(showDataBtn);
+
+/* Fetch from LocalStorage */
+
+// const deleteBtn = document.createElement("button");
+// deleteBtn.classList.add("deleteBtn");
+// deleteBtn.id = "deleteBtn";
+// deleteBtn.textContent = "Delete";
+
+showDataBtn.addEventListener("click", () => {
+    let displayData = [];
+    if (showData.innerHTML !== "") {
+        return;
+    } 
+
+
+    for (i=0;i<localStorage.length;i++) {
+        const currentKey = localStorage.key(i);
+        if (!currentKey.includes("exercise")) {
+            continue;
+        }
+        const response = localStorage.getItem(currentKey);
+        const data = JSON.parse(response);
+        displayData.push(data);
+    }
+
+    if (displayData.length === 0) {
+        showData.textContent = "There is no stored data to show."
+        return;
+    }
+
+    const showDataHTML = displayData.map(item=>{
+        return `
+        <ul class="workoutCard"> 
+            <li><strong>Date:</strong> ${item.date}</li>
+            <li><strong>Type:</strong> ${item.type}</li>
+            <li><strong>Note:</strong> ${item.note}</li>
+        </ul>
+        `
+    }).join("");
+    showData.innerHTML = showDataHTML;
+    
+
 })
 
-// const showData = document.getElementById("showData");
-// const saveData = document.getElementById("saveData");
-// const delData = document.getElementById("delData");
 
-// const selectedDate = document.getElementById("selectedDate");
 
-// const checkedData = document.querySelectorAll('input[type="checkbox"]');
-// const durationData = document.getElementById("durationData");
-// const showResults = document.getElementById("showResults");
 
 // saveData.addEventListener('click', () => {
 //     const date = selectedDate.value;
