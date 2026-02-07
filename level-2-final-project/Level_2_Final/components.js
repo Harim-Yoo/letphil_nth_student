@@ -17,7 +17,7 @@ export class Header {
             {
                 href: "./showexercise.html",
                 class: "learnTag",
-                desc: "Learn New Exercise"
+                desc: "Learn Random Exercise"
             }
         ]
 
@@ -190,7 +190,7 @@ export class FetchDisplay extends ComponentDiv {
         const { name, main_muscles, secondary_muscles } = data;
         const spanTags = (item) => {
             if (Array.isArray(item)) {
-                return item.map(i => `<span style="color:yellow">${i}</span>`).join("");
+                return item.map(i => `<span style="color:yellow">${i}</span>`).join(" ");
             } else {
                 return item;
             }

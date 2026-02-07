@@ -136,17 +136,27 @@ showDataBtn.id = "showDataBtn";
 showDataBtn.textContent = "Show"
 btnDiv.appendChild(showDataBtn);
 
+const filterDataLabel = document.createElement("label");
+filterDataLabel.htmlFor = "filterData";
+filterDataLabel.textContent = "Filter by Types";
+filterDataLabel.classList.add("filterDataLabel");
+
+btnDiv.appendChild(filterDataLabel);
+
+const filterData = document.createElement("select");
+filterData.classList.add("filterData");
+filterData.id = "filterData";
+btnDiv.appendChild(filterData);
+
+const optionHTML = ["all", ...checkBoxData].map(item => `<option value=${item}>${item}</option>`);
+filterData.innerHTML = optionHTML;
+
+
 /* Fetch from LocalStorage */
-
-showDataBtn.addEventListener("click", () => {
-    
+const renderChange = () => {
+     const filterVal = filterData.value;
     let displayData = [];
-    if (showData.innerHTML !== "") {
-        return;
-    }
-
     showData.innerHTML = "";
-    showData.textContent = "";
 
     for (let i = 0; i < localStorage.length; i++) {
         const currentKey = localStorage.key(i);
@@ -155,35 +165,38 @@ showDataBtn.addEventListener("click", () => {
         }
         const response = localStorage.getItem(currentKey);
         const data = JSON.parse(response);
-        displayData.push(data);
-
-        const ul = document.createElement("ul");
-        ul.classList.add("workoutCard");
-        ul.innerHTML = `
+        if (filterVal === "all" || data.type.includes(filterVal)) {
+            displayData.push(data);
+            const ul = document.createElement("ul");
+            ul.classList.add("workoutCard");
+            ul.innerHTML = `
             <li><span>Date:</span> ${data.date}</li>
             <li><span>Type:</span> ${data.type}</li>
             <li><span>Note:</span> ${data.note}</li>
         `
 
-        const delBtn = document.createElement("button");
-        delBtn.classList.add("delBtn");
-        delBtn.id = "delBtn";
-        delBtn.textContent = "DELETE";
+            const delBtn = document.createElement("button");
+            delBtn.classList.add("delBtn");
+            delBtn.textContent = "DELETE";
 
-        delBtn.addEventListener("click", () => {
-            localStorage.removeItem(currentKey);
-            ul.remove();
-        });
+            delBtn.addEventListener("click", () => {
+                localStorage.removeItem(currentKey);
+                ul.remove();
+            });
 
-        ul.appendChild(delBtn);
-        showData.appendChild(ul);
+            ul.appendChild(delBtn);
+            showData.appendChild(ul);
+        }
     }
 
     if (displayData.length === 0) {
-        const message = "Warning: There is no stored data to show."
-        alert(message.toUpperCase());
+        const message = "Either there is no data to show, or there is a type mismatch."
+        showData.innerHTML = `<p style="color:white">${message}</p>`;
     }
 
-})
+}
+
+showDataBtn.addEventListener("click", renderChange);
+filterData.addEventListener("change", renderChange);
 
 new Footer;

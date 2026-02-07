@@ -154,8 +154,9 @@ main h3 {
     justify-content: space-evenly;
     align-items:center;
     width:100%;
-    gap:15px;
-    padding:10px;
+    margin:auto;
+    gap:10px;
+
 }
 
 .saveDataBtn, .showDataBtn {
@@ -167,6 +168,21 @@ main h3 {
     cursor: pointer;
     background-color: ghostwhite;
     transition: all 0.2s ease;
+}
+
+.filterDataLabel {
+    background-color: ghostwhite;
+    padding: 10px 15px;
+    border-radius:5px;
+    font-weight:bold;
+    font-size: small;
+}
+
+.filterData, .filterData option {
+    background-color: ghostwhite;
+    color:black;
+    padding: 5px;
+    border-radius:5px;
 }
 
 .delBtn {
@@ -271,4 +287,90 @@ footer {
     color:white;
     padding:10px;
     align-items:center;
+}
+
+/* Mobile responsive */
+
+@media screen and (max-width: 600px) {
+
+    h1 {
+        width: 80%;
+        margin:auto;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .homeTag, .logTag, .learnTag {
+        width: 80%; 
+        text-align: center;
+        padding: 10px;
+    }
+
+    .logIntro {
+        width: 80%;
+        margin:auto;
+    }
+    .logDiv {
+        width: 100%; 
+        padding: 10px;
+    }
+
+    .dateDiv, .typeDiv, .noteDiv {
+        width:80%;
+        margin:auto;
+        flex-direction: row; 
+        justify-content:center;
+        align-items: stretch;  
+        gap: 5px;
+        overflow:auto;
+    }
+
+    .dateLabel, .typeLabel, .noteLabel {
+        text-align: left;
+        width: 50%;
+        background-color: transparent; 
+        color: white; 
+        padding-left: 0;
+    }
+
+    .dateInput, .noteInput {
+        width: 100%; 
+        box-sizing: border-box; 
+        padding: 12px;
+    }
+
+
+    .btnDiv {
+        width:80%;
+        margin:auto;
+        display: flex;
+    }
+
+    .saveDataBtn, .showDataBtn {
+        width: 100%; 
+        padding: 10px; 
+        font-size: 1.1rem;
+    }
+
+    .fetchBtn {
+        width: 90%; 
+        padding: 15px;
+        font-size: 1.1rem;
+    }
+
+    main h1 {
+        font-size: 1.5rem; 
+        width: 80%;
+        margin: 10px auto;
+    }
+  
+    .workoutCard {
+        width:80%;
+        margin:auto;
+        font-size: 0.9rem;
+    }
 }
