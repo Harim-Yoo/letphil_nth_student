@@ -1,36 +1,6 @@
-/*Header Setup*/
+import { Header, Footer } from "./components.js";
 
-const header = document.createElement("header");
-const headerInfo = [
-    {
-        href: "./index.html",
-        class: "homeTag",
-        desc: "Go Home"
-    },
-    {
-        href: "./logworkout.html",
-        class: "logTag",
-        desc: "Log Your Workout"
-    },
-    {
-        href: "./showexercise.html",
-        class: "learnTag",
-        desc: "Learn New Exercise"
-    }
-]
-
-const headerHTML = headerInfo
-    .map((props) => {
-        return `
-            <a href="${props.href}" class="${props.class}">
-            ${props.desc}
-            </a>
-            `
-    })
-    .reduce((a, c) => { return (a + c) }, "");
-
-header.innerHTML = headerHTML;
-document.body.prepend(header);
+new Header();
 
 /*Body Setup*/
 
@@ -60,7 +30,7 @@ dateInput.classList.add("dateInput");
 dateInput.id = "dateInput";
 dateInput.required = true;
 
-header.after(logDiv);
+document.body.append(logDiv);
 logDiv.appendChild(dateDiv);
 dateDiv.appendChild(dateLabel);
 dateDiv.appendChild(dateInput);
@@ -190,11 +160,9 @@ showDataBtn.addEventListener("click", () => {
         const ul = document.createElement("ul");
         ul.classList.add("workoutCard");
         ul.innerHTML = `
-        <ul class="workoutCard"> 
             <li><span>Date:</span> ${data.date}</li>
             <li><span>Type:</span> ${data.type}</li>
             <li><span>Note:</span> ${data.note}</li>
-        </ul>
         `
 
         const delBtn = document.createElement("button");
@@ -218,6 +186,4 @@ showDataBtn.addEventListener("click", () => {
 
 })
 
-const footer = document.createElement("footer");
-footer.textContent = "Copyright @ Harim Yoo"
-document.body.append(footer);
+new Footer;

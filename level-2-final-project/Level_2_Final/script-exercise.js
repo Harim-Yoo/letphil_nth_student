@@ -1,33 +1,8 @@
 /* Header Setup */
 
-const header = document.createElement("header");
-const headerInfo = [
-    {
-        href:"./index.html",
-        class:"homeTag",
-        desc:"Home"
-    },
-    {
-        href:"./logworkout.html",
-        class:"logTag",
-        desc:"Log Your Workout"
-    },
-    {
-        href:"./showexercise.html",
-        class:"learnTag",
-        desc:"Learn New Exercise"
-    }
-];
+import { Header, Footer } from "./components.js";
 
-const headerHTML = headerInfo
-    .map(item => {
-        return `
-            <a href="${item.href}" class="${item.class}">${item.desc}</a>
-        `
-    });
-
-header.innerHTML = headerHTML;
-document.body.prepend(header);
+new Header();
 
 /* Fetching New Parts */
 
@@ -66,6 +41,7 @@ fetchBtn.addEventListener("click", async () => {
     }
 })
 
+new Footer();
 /*
 **Tech:** HTML, CSS, JavaScript  
 **Features:**  
