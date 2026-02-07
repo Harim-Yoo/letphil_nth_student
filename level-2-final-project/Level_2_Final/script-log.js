@@ -148,7 +148,7 @@ showDataBtn.addEventListener("click", () => {
     showData.innerHTML = "";
     showData.textContent = "";
 
-    for (i = 0; i < localStorage.length; i++) {
+    for (let i = 0; i < localStorage.length; i++) {
         const currentKey = localStorage.key(i);
         if (!currentKey.includes("exercise")) {
             continue;
