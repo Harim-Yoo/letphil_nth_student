@@ -43,3 +43,55 @@ const sortedNewFoo = newFoo
   .join(",")
 
 console.log(sortedNewFoo);
+
+/* 1.3.9 Stack Method */
+
+//{{()}}
+const stackStr = "{{(})}"
+const validParentheses = (str) => {
+  let stack = [];
+  const initChars = ["(", "{", "["]
+  for (let char of str) {
+    if (initChars.includes(char)) {
+      stack.push(char)
+    } else {
+      const lastChar = stack.pop(); // 마지막에 넣은 것을 pop 해봐.
+      if (char === ")" && lastChar !== "(" || 
+        char === "}" && lastChar !== "{" || 
+        char === "]" && lastChar !== "[" )
+      return false      
+    }
+  }
+  return stack.length === 0
+}
+
+console.log(validParentheses(stackStr));
+
+// BOJ 9102 Silver 4
+
+const fooBar = (str) => {
+  let stack = [];
+  for (let char of str) {
+    if (char === "(") {
+      stack.push(char)
+    } else {
+      const lastChar = stack.pop();
+      if (char === ")" && lastChar !== "(") return "NO"
+    }
+  }
+  return stack.length === 0 ? "YES" : "NO"
+}
+
+// BOJ 10773 Silver 4
+
+const fooCheck = (inputNums) => {
+  let stack = [];
+  for (let num of inputNums) {
+    if (num === 0) {
+      stack.pop();
+    } else {
+      stack.push(num)
+    }
+  }
+  return stack.reduce((a,c)=>a+c,0);
+}
