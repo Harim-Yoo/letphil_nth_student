@@ -15,6 +15,9 @@ export function RenderFruitList() {
       question="Render each fruit inside an <li>."
       dataPreview={fruits}
     >
+      <ol>
+      {fruits.map((fruit, idx)=> <li key={idx}>{fruit}</li>)}
+      </ol>
     </ProblemCard>
   );
 }

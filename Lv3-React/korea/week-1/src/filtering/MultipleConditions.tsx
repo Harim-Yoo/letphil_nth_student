@@ -18,11 +18,7 @@ export const MultipleConditions = () => {
     >
       {users
         .filter((user) => user.active && user.age > 18)
-        .map((user) => (
-          <p>
-            {user.name} {user.age}
-          </p>
-        ))}
+        .map((user) => <p>{user.name} : {user.age}</p>)}
     </ProblemCard>
   );
 };

@@ -9,6 +9,10 @@ export const LongWordsOnly = () => {
       method="filter"
       question="Render only words longer than 4 characters."
       dataPreview={words}
-    ></ProblemCard>
+    >
+      {
+        words.filter((word)=>word.length>4).map((word,index)=><p key={index}>{word}</p>)
+      }
+    </ProblemCard>
   );
 };

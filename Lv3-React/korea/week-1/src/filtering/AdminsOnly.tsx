@@ -9,8 +9,6 @@ export const AdminsOnly = () => {
     { id: 3, name: "Robin", isAdmin: true },
   ];
 
-  const admins = users.filter((user) => user.isAdmin);
-
   return (
     <ProblemCard
       title="Filter 03 — Filter objects by property"
@@ -18,7 +16,7 @@ export const AdminsOnly = () => {
       question="Render only the admins."
       dataPreview={users}
     >
-      {admins.map((x) => x.name)}
+      {users.filter((user)=>user.isAdmin).map((user, index)=><p key={index}>{user.name}</p>)}
     </ProblemCard>
   );
 };

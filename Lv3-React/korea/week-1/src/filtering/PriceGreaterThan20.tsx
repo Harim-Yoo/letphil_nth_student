@@ -10,8 +10,6 @@ export const PriceGreaterThan20 = () => {
     { id: 3, name: "Mousepad", price: 22 },
   ];
 
-  const filterItem = products.filter((product) => product.price > 20);
-
   return (
     <ProblemCard
       title="Filter 04 — Filter by value"
@@ -19,7 +17,7 @@ export const PriceGreaterThan20 = () => {
       question="Render products with price > 20."
       dataPreview={products}
     >
-      {filterItem.map((item) => (
+      {products.filter((prod)=>prod.price>20).map((item) => (
         <div>
           {item.name}, {item.price}
         </div>

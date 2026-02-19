@@ -14,18 +14,10 @@ export const CountOccurences = () => {
     "apple",
   ];
 
-  const count = words.reduce(
-    (acc, curr) => {
-      if (curr === "apple") {
-        return { ...acc, apple: acc.apple + 1 };
-      } else if (curr === "banana") {
-        return { ...acc, banana: acc.banana + 1 };
-      } else {
-        return { ...acc, orange: acc.orange + 1 };
-      }
-    },
-    { apple: 0, banana: 0, orange: 0 },
-  );
+  const count = words.reduce((a,c)=> {
+    a[c] = (a[c]||0) + 1;
+    return a;
+  }, {} as Record<string,number>);
 
   return (
     <ProblemCard
@@ -34,7 +26,7 @@ export const CountOccurences = () => {
       question="Use reduce() to count how many times each word appears."
       dataPreview={words}
     >
-      {count.apple}
+      {Object.entries(count).map((item,idx) => <p key={idx}>{item[0]}:{item[1]}</p>)}
     </ProblemCard>
   );
 };

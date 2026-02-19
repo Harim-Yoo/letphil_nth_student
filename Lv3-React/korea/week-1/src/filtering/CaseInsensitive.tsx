@@ -8,6 +8,8 @@ export const CaseInsensitive = () => {
       method="filter"
       question='Render only names that include the letter "a" (case-insensitive).'
       dataPreview={names}
-    ></ProblemCard>
+    >
+      {names.filter((name)=>name.toLowerCase().startsWith("a")).map((name, index)=><p key={index}>{name}</p>)}
+    </ProblemCard>
   );
 };

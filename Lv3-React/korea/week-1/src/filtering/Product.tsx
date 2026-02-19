@@ -1,11 +1,11 @@
 import React from "react";
 import { ProductType } from "../types/product.types";
 
-export const Product = ({ prod: { id, name } }: ProductType) => {
+export const Product = ({ prod }: ProductType) => {
   return (
     <div>
-      <p>{id}</p>
-      <p>{name}</p>
+      <p>{prod.id}</p>
+      <p>{prod.name}</p>
     </div>
   );
 };

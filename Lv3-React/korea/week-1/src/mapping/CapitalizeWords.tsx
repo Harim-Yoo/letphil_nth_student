@@ -2,6 +2,16 @@ import ProblemCard from "../extras/ProblemCard";
 
 export const CapitalizeWords = () => {
   const animals = ["dog", "cat", "bird"];
+  const letterizedAnimals = animals.map((animal)=>animal.split(""));
+  const Letters = letterizedAnimals.map((item) => {
+          return item.reduce((acc,cur,idx)=>{
+            if (idx===0) {
+              return acc += cur.toUpperCase()
+            } else {
+              return acc += cur
+            }
+          },"")
+        });
 
   return (
     <ProblemCard
@@ -10,15 +20,7 @@ export const CapitalizeWords = () => {
       question="Render each word with the first letter capitalized, in a div."
       dataPreview={animals}
     >
-
-      {/* write code here */}
-      {animals.map(animal => {
-        const firstLetter = animal.charAt(0).toUpperCase();
-        const restOfAnimal = animal.slice(1);
-        
-        return <div style={{textTransform: "capitalize"}}>{firstLetter + restOfAnimal}</div>
-      }
-      )}
+      {Letters.map((item, index)=><p key={index}>{item}</p>)}
     </ProblemCard>
   );
 };

@@ -19,9 +19,8 @@ export const PreFilter = () => {
       dataPreview={products}
     >
       {/* [<Product/>, <Product />] */}
-      {inStockProducts.map((product) => (
-        <Product prod={product} /> //{ id: 1, name: "Notebook", inStock: true },
-      ))}
+      {inStockProducts.map((product) => <Product prod={product} /> //{ id: 1, name: "Notebook", inStock: true },
+      )}
     </ProblemCard>
   );
 };
