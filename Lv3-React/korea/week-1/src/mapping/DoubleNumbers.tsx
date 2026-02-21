@@ -13,7 +13,7 @@ export const DoubleNumbers = () => {
       question="Render each number doubled."
       dataPreview={nums}
     >
-      {nums.map(num=><p>{num*2}</p>)}
+      {nums.map((num,index)=><p key={index}>{num*2}</p>)}
     </ProblemCard>
   );
 };

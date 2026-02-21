@@ -13,7 +13,7 @@ export const FullNames = () => {
       question="Render full names by combining firstName + lastName."
       dataPreview={people}
     >
-      {people.map((person)=><p>{person.firstName + " " + person.lastName}</p>)}
+      {people.map((person, index)=><p key={index}>{person.firstName + " " + person.lastName}</p>)}
     </ProblemCard>
   );
 };

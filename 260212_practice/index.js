@@ -67,7 +67,8 @@ const validParentheses = (str) => {
 
 console.log(validParentheses(stackStr));
 
-// BOJ 9102 Silver 4
+//  BOJ 9102 Silver 4 
+
 
 const fooBar = (str) => {
   let stack = [];
@@ -95,3 +96,38 @@ const fooCheck = (inputNums) => {
   }
   return stack.reduce((a,c)=>a+c,0);
 }
+
+// Neetcode Group Anagrams;
+
+const checkAnagram = (str1, str2) => {
+  return [...str1].sort().join("") === [...str2].sort().join("")
+}
+
+const groupAnagram = (strs) => {
+  let result = [];
+  
+  }
+
+
+/* Vim Command
+
+Normal Mode : navigating 
+
+hjkl : left, down, up, right
+
+x : delete
+dd : delete that line I am at 
+u : same as ctrl+z : If mistake has happened, click ESC, and type u multiple times.
+cw: change word (great for changing the variable name.)
+
+Insert Mode : 
+
+i : insert 
+a : append
+shift + a : append at the last line
+o : make a new line
+
+click ESC to end everything
+
+If you want to save something, click :w !! 
+*/

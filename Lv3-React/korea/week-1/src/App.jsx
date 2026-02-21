@@ -12,7 +12,9 @@ import { FormatPrices } from "./mapping/FormatPrices";
 import { RenderFruitList } from "./mapping/FruitList";
 import { FullNames } from "./mapping/FullNames";
 import { RankedList } from "./mapping/RankedList";
-
+import { Stats } from "./reducing/Stats";
+import { SumNumbers } from "./reducing/SumNumbers";
+ 
 const App=()=>{
   return (
     <div style={{ color: "black", backgroundColor: "gray" }}>
@@ -30,6 +32,8 @@ const App=()=>{
       <RenderFruitList/>
       <FullNames/>
       <RankedList/>
+      <Stats/>
+      <SumNumbers/>
     </div>
   );
 }

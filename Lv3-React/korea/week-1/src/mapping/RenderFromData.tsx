@@ -12,7 +12,9 @@ export const RenderFromData = () => {
       method="map"
       question="Use map() to render a <UserCard /> for each user."
       dataPreview={users}
-    ></ProblemCard>
+    >
+      <UserCard/>
+    </ProblemCard>
   );
 };
 

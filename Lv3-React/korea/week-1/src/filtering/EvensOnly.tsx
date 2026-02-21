@@ -10,7 +10,7 @@ export const EvensOnly = () => {
       question="Filter the array to only even numbers, then render them."
       dataPreview={nums}
     >
-      {nums.filter((num)=>num%2===0).map((n)=><p>{n}</p>)}
+      {nums.filter((num)=>num%2===0).map((n,i)=><p key={i}>{n}</p>)}
     </ProblemCard>
   );
 };

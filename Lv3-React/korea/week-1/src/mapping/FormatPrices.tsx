@@ -10,7 +10,7 @@ export const FormatPrices = () => {
       dataPreview={prices}
     >
       {
-        prices.map((num)=><p>{"$"+num.toFixed(2)}</p>)
+        prices.map((num, index)=><p key={index}>{"$"+num.toFixed(2)}</p>)
       }
     </ProblemCard>
   );

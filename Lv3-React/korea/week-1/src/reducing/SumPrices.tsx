@@ -1,3 +1,5 @@
+import ProblemCard from "../extras/ProblemCard";
+
 export const SumPrices = () => {
   const products = [
     { id: 1, name: "Mouse", price: 25 },
@@ -13,7 +15,9 @@ export const SumPrices = () => {
       question="Use reduce() to sum all product prices."
       dataPreview={products}
     >
-      <div></div>
+      <div>
+        {products.map((product)=>product.price).reduce((acc,cur)=>acc+=cur,0)}
+      </div>
     </ProblemCard>
   );
 };
