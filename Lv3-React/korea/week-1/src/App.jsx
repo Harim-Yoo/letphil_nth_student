@@ -14,6 +14,11 @@ import { FullNames } from "./mapping/FullNames";
 import { RankedList } from "./mapping/RankedList";
 import { Stats } from "./reducing/Stats";
 import { SumNumbers } from "./reducing/SumNumbers";
+import { CountItems } from "./reducing/CountItems";
+import { InventoryValue } from "./reducing/InventoryValue";
+import { HighestScore } from "./reducing/HighestScore";
+import { ActiveUserCount } from "./reducing/ActiveUserCount";
+import { CategorySum } from "./reducing/CategorySum";
  
 const App=()=>{
   return (
@@ -34,6 +39,11 @@ const App=()=>{
       <RankedList/>
       <Stats/>
       <SumNumbers/>
+      <CountItems/>
+      <InventoryValue/>
+      <HighestScore/>
+      <ActiveUserCount/>
+      <CategorySum/>
     </div>
   );
 }

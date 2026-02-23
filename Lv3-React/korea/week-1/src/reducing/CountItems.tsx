@@ -12,7 +12,10 @@ export const CountItems = () => {
       question="Use reduce() to count how many items are in the array (without using .length)."
       dataPreview={items}
     >
-      {items.reduce((acc,_)=>acc+=1,0)}
+      {items.reduce((acc,cur)=>{
+        acc = acc+1
+        return acc
+      },0)}
     </ProblemCard>
   );
 };
