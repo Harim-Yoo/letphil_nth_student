@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { CartItem } from "./CartItem";
 
 /**
  * Make a cart system where the parent stores quantity, but the child updates it.
@@ -15,6 +14,14 @@ import { CartItem } from "./CartItem";
  *      - onDecrease()
  *      - Buttons in child update parent state
  */
+
+const CartItem = (props: {
+  quantity: number;
+  onIncrease(): (quantity:number) => void;
+  onDecrease(): (quantity:number) => void;
+}) => {
+  return <></>
+}
 
 export const Cart = () => {
   const [cart, setCart] = useState([
