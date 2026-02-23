@@ -1,17 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import { Counter } from '../counter/Counter'
+import { Cart } from '../cart/Cart'
+import { TodoApp } from '../selfmade-practices/ToDo'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
+    <div className="flex flex-col w-full min-h-screen">
      <Counter
       step = {4}
     />
+    <Cart/>
+    <TodoApp/>
+    </div>
     </>
   )
 }
