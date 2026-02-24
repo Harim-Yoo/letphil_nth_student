@@ -2,6 +2,12 @@ import './App.css'
 import { Counter } from '../counter/Counter'
 import { Cart } from '../cart/Cart'
 import { TodoApp } from '../selfmade-practices/ToDo'
+import { ThemeApp } from '../selfmade-practices/ColorThemeSelector'
+import { AttendanceRoster } from '../selfmade-practices/EmployeeAttendance'
+import { Accordion } from '../selfmade-practices/AccordianFAQ'
+import { ProductPage } from '../selfmade-practices/FilterCategory'
+import { PostList } from '../selfmade-practices/LikeList'
+import { QuizManager } from '../selfmade-practices/QuizGame'
 
 function App() {
   return (
@@ -12,6 +18,12 @@ function App() {
     />
     <Cart/>
     <TodoApp/>
+    <ThemeApp/>
+    <AttendanceRoster/>
+    <Accordion/>
+    <ProductPage/>
+    <PostList/>
+    <QuizManager/>
     </div>
     </>
   )
