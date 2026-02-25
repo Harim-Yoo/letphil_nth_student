@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 // ==========================================
-// 7. Accordion / FAQ (하나만 열리게 하기)
+// 7. Accordion / FAQ
 // ==========================================
 /**
  * Components: Accordion (Parent), AccordionItem (Child)
