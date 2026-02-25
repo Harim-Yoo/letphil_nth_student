@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import "./styles.css";
+import { useState } from "react";
 
 /**
  * Build a Counter component that increments by a step value passed in as a prop.
@@ -12,5 +11,11 @@ import "./styles.css";
  */
 
 export const Counter = () => {
-  return <div></div>;
+  const [count, setCount] = useState<number>(0);
+  return <div>
+    <span>{count}</span>
+    <button onClick={()=>setCount((prev : number) => prev+1)}>Increase</button>
+    <button onClick={()=>setCount((prev :number) =>prev-1)}>Decrease</button>
+    <button onClick={()=>setCount(0)}>Default</button>
+  </div>;
 };
