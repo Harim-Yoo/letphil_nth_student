@@ -58,11 +58,11 @@ export const SignupForm = () => {
   return (
     <>
     <span>Signup</span>
-    <input type="text" value={form.email} onChange={(e)=>setDataForm({...dataForm, form: {...dataForm.form, email:e.target.value}})}/>
+    <input type="text" value={form.email} onChange={(e)=>setDataForm({...dataForm, form: {...dataForm.form, email:e.target.value}})} placeholder="Email"/>
     {dataForm.errors.email !== "" && <span>{dataForm.errors.email}</span>}
-    <input type="text" value={form.password} onChange={(e)=>setDataForm({...dataForm, form: {...dataForm.form, password: e.target.value}})}/>
+    <input type="text" value={form.password} onChange={(e)=>setDataForm({...dataForm, form: {...dataForm.form, password: e.target.value}})} placeholder="Password"/>
     {dataForm.errors.password !== "" && <span>{dataForm.errors.password}</span>}
-    <input type="text" value={form.confirmPassword} onChange={(e)=>setDataForm({...dataForm, form: {...dataForm.form, confirmPassword: e.target.value}})}/>
+    <input type="text" value={form.confirmPassword} onChange={(e)=>setDataForm({...dataForm, form: {...dataForm.form, confirmPassword: e.target.value}})} placeholder="Confirm Password"/>
     {dataForm.errors.confirmPassword !== "" && <span>{dataForm.errors.confirmPassword}</span>}
     <button onClick={()=>validateData(dataForm)} disabled={errorError || formError }>Submit</button>
     </>  

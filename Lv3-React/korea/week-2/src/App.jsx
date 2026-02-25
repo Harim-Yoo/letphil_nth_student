@@ -1,6 +1,7 @@
 import { CharacterCount } from '../exercises/Easy/char_count/CharacterCount'
 import { Counter } from '../exercises/Easy/counter/Counter'
 import { SignupForm } from '../exercises/Medium/signup/SignupForm'
+import { Tabs } from '../exercises/Medium/tabs/Tabs'
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
     <CharacterCount/>
     <Counter/>
     <SignupForm/>
+    <Tabs/>
     </div>
     </>
   )
