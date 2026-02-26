@@ -1,8 +1,10 @@
 import { CharacterCount } from '../exercises/Easy/char_count/CharacterCount'
 import { Counter } from '../exercises/Easy/counter/Counter'
+import { Cart } from '../exercises/Hard/cart/Cart'
 import { SignupForm } from '../exercises/Medium/signup/SignupForm'
 import { Tabs } from '../exercises/Medium/tabs/Tabs'
 import { TodoApp } from '../exercises/Medium/todo/TodoApp'
+
 function App() {
   return (
     <>
@@ -12,6 +14,7 @@ function App() {
     <SignupForm/>
     <Tabs/>
     <TodoApp/>
+    <Cart/>
     </div>
     </>
   )
