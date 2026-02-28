@@ -1,26 +1,24 @@
 import { useState, useEffect } from "react";
+import {useDebounce} from '../hooks/useDebounce';
 
 export const useFetchData = () => {
     const [data, setData] = useState<any>(null);
-    const [loading, setLoading] = useState<boolean>(true);
-    const [error, setError] = useState<string | null>(null);
-    const [name, setName] = useState<string>("pikachu")
-    
-    const fetchData = async () => {
-        try {
-            const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`, {method: "GET"})
-            const data = await res.json();
-            setData(data[0]);
-        } catch(error:any) {
-            setError(error.message);
-        } finally {
-            setLoading(false)
-        }
-    }
+    const [name, setName] = useState<string>("pikachu");
+    const [error, setError] = useState<string|null>(null);
+    const debouncedName = useDebounce(name,500);
 
-    useEffect(()=>{
-        fetchData();
-    },[])
-    
-    return { loading, data, error, fetchData, name, setName };
+    const fetchData = async (name:string) => {
+    if (!name) return;
+    setError(null);
+    try {
+      const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
+      if (!response.ok) throw new Error("No data")
+      const data = await response.json();
+      setData(data.name);
+    } catch(error:any) {
+      setError(error.message)
+      setData(null);
+    }
+  }
+    return { data, error, fetchData, name, setName, setError, debouncedName };
 }

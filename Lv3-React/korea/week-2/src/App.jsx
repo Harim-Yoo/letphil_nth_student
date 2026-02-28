@@ -4,6 +4,9 @@ import { Cart } from '../exercises/Hard/cart/Cart'
 import { SignupForm } from '../exercises/Medium/signup/SignupForm'
 import { Tabs } from '../exercises/Medium/tabs/Tabs'
 import { TodoApp } from '../exercises/Medium/todo/TodoApp'
+import { Api } from '../exercises/useEffect/Api'
+import { Example } from '../exercises/useEffect/Example'
+import { WindowWidthTracker } from '../exercises/useEffect/WindowWidthTracker'
 
 function App() {
   return (
@@ -15,6 +18,8 @@ function App() {
     <Tabs/>
     <TodoApp/>
     <Cart/>
+    <Api/>
+    <WindowWidthTracker/>
     </div>
     </>
   )
