@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 /**
  * Goal: Simulate fetching different data when a category changes.
  * Task:
@@ -9,5 +11,14 @@
  * - Use the dependency array correctly to target only the 'category' state.
  */
 export const DataFetcher = () => {
-  return <></>;
+  const [category, setCategory] = useState<string>("")
+  const [counter, setCounter] = useState<number>(0);
+  useEffect(()=>{
+    console.log(`Fetching data for ${category}`);
+  },[category])
+  return <>
+  <button onClick={()=>setCounter(counter+1)}>Count : {counter}</button>
+  <button onClick={()=>setCategory("news")}>Change to News</button>
+  <button onClick={()=>setCategory("sports")}>Change to Sports</button>
+  </>;
 };

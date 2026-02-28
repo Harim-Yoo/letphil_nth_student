@@ -1,4 +1,4 @@
-import React from 'react'
+import {useState, useEffect} from "react";
 
 // setInterval, clearInterval
 
@@ -11,7 +11,19 @@ import React from 'react'
  */
 
 export const IntervalTimer = () => {
-  return (
-    <div></div>
-  )
+  const [seconds, setSeconds] = useState<number>(0);
+  const [isActive, setIsActive] = useState<boolean>(false);
+  
+  useEffect(()=>{
+    if (!isActive) return;
+    const interval = setInterval(()=>{setSeconds(prev=>prev+1)},1000)
+    return ()=>{clearInterval(interval)}
+  },[isActive])
+  
+  return <>
+  <span className="flex flex-col justify-center items-center">{seconds}</span>
+  <button onClick={()=>setIsActive(!isActive)}>
+    {isActive ? "Stop" : "Start"}
+  </button>
+  </>;
 }

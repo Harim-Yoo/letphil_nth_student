@@ -1,3 +1,5 @@
+import {useState, useEffect} from "react";
+
 /**
  * Goal: Build a countdown timer that starts from 10.
  * Task:
@@ -9,5 +11,14 @@
  * - Avoid "stale closures" by ensuring the effect correctly accesses the latest state or uses a functional update.
  */
 export const CountdownTimer = () => {
-  return <></>;
+  const [seconds, setSeconds] = useState<number>(10);
+  useEffect(()=>{
+    if (seconds === 0) {
+      alert("Time Out");
+      return;
+    }
+    const interval = setInterval(()=>setSeconds(prev=>prev-1),1000);
+    return ()=>{clearInterval(interval)}
+  }, [seconds])
+  return <>Time left: {seconds}</>;
 };
