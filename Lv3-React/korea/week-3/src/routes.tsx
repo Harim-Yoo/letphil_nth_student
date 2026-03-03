@@ -4,7 +4,8 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import ProtectedRoutes from "./pages/ProtectedRoutes";
 import Dashboard from "./pages/Dashboard";
-
+import Login from "./pages/Login";
+import SignUp from "./pages/Signup";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -17,6 +18,14 @@ export const router = createBrowserRouter([
       {
         path: "contact",
         Component: Contact
+      },
+      {
+        path:"login",
+        Component: Login
+      },
+      {
+        path:"signup",
+        Component: SignUp
       }
     ]
   },

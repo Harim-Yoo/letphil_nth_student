@@ -1,5 +1,5 @@
 import {ReactEventHandler, useState} from "react";
-
+import { useNavigate } from "react-router";
 /**
  * In local storage:
  * Username
@@ -15,7 +15,7 @@ type UserData = {
 
 
 const Login = () => {
-
+  const navigate = useNavigate();
   const [userName, setUserName] = useState<string>("")
   const [passWord, setPassWord] = useState<string>("")
   const [savedUser, setSavedUser] = useState<UserData>({username:"",password:""})
@@ -32,7 +32,7 @@ const Login = () => {
     if (fetchedUser.username === userName && fetchedUser.password) {
       alert("Welcome!")
       setUser({...user, username: userName, password: passWord})
-      return
+      navigate("/protected-routes", { replace: true });
     }
   }
 
@@ -40,6 +40,7 @@ const Login = () => {
   <form onSubmit={checkUser}>
     <input type="text" value={userName} onChange={(e)=>setUserName(e.target.value)}/>
     <input type="password" value={passWord} onChange={(e)=>setPassWord(e.target.value)}/>
+    <button type="submit">Log-in</button>
   </form>
   </>
 }

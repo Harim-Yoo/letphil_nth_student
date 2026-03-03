@@ -7,8 +7,14 @@ type AuthDataType = {
 }
 const useAuthStore = create<AuthDataType>((set)=>({
   isLoggedin: JSON.parse(localStorage.getItem("loggedIn") || "false"),
-  login: ()=>set({isLoggedin:true}),
-  logout: ()=> set({isLoggedin:false})
+  login: ()=>{
+    localStorage.setItem("loggedIn","true")
+    set({isLoggedin:true})
+  },
+  logout: ()=> {
+    localStorage.setItem("loggedIn", "false")
+    set({isLoggedin:false})
+  }
 }))
 
 
