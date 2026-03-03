@@ -40,7 +40,7 @@ const FinalCheck = (props: {
   const {barCheck, foobarCheck } = props;
   return <>
   <button onClick = {barCheck}>Back</button>
-  <button onClick = {foobarCheck}>Submit</button>
+  <button type="submit" onClick = {foobarCheck}>Submit</button>
   </>
 
 }

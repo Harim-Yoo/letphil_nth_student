@@ -9,5 +9,15 @@ import React, { useState, useEffect } from "react";
  */
 
 export const DocumentTitle = () => {
-  return <div></div>;
+  const [count, setCount] = useState<number>(0);
+  
+  useEffect(()=>{
+    document.title = `Count: ${count}`
+    return ()=>{ document.title = "React App"}
+  }, [count])
+  
+
+  return <div>
+    <button onClick={()=>setCount(count+1)}>Increase</button>
+  </div>;
 };

@@ -1,5 +1,4 @@
-import React from "react";
-
+import {useState, useEffect} from "react";
 /**
  * Goal: Sync state with external storage.
     - Task: A text input “username”. Load initial value from localStorage on mount, and save to localStorage whenever it changes.
@@ -9,5 +8,16 @@ import React from "react";
  */
 
 export const LocalStorage = () => {
-  return <div></div>;
+  const [userName, setUserName] = useState<string>(()=>{
+    const fetchedData = localStorage.getItem("name");
+    return (fetchedData ? fetchedData : "")
+  })
+
+  useEffect(()=>{
+    localStorage.setItem("name",userName)
+  },[userName]);
+
+  return <div>
+    <input value={userName} onChange={(e)=>setUserName(e.target.value)}/>
+  </div>;
 };
